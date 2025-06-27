@@ -1,10 +1,16 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import {
   Monitor,
   Layers,
@@ -16,15 +22,16 @@ import {
   ArrowRight,
   Search,
   BarChart,
-} from "lucide-react"
-import { AnimatedBackground } from "@/components/animated-background"
-import { AppleHelloEnglishEffect } from "@/components/apple-hello"
-import DisplayCards from "@/components/display-card"
-import SectionWithMockup from "@/components/section-with-mockup"
-import { useRef, useState, useEffect } from "react"
-import InteractiveCalendar from "@/components/visualize-booking"
-import { Gauge } from "@/components/ui/gauge"
-import { DotLoader } from "@/components/dot-loader"
+} from "lucide-react";
+import { AnimatedBackground } from "@/components/animated-background";
+import { AppleHelloEnglishEffect } from "@/components/apple-hello";
+import DisplayCards from "@/components/display-card";
+import SectionWithMockup from "@/components/section-with-mockup";
+import { useRef, useState, useEffect } from "react";
+import InteractiveCalendar from "@/components/visualize-booking";
+import { Gauge } from "@/components/ui/gauge";
+import { DotLoader } from "@/components/dot-loader";
+import { HeroSection } from "@/components/blocks/hero-section-1";
 
 const enterpriseCards = [
   {
@@ -54,9 +61,10 @@ const enterpriseCards = [
     date: "Swell, Shopify Plus",
     iconClassName: "bg-green-800",
     titleClassName: "text-green-500",
-    className: "[grid-area:stack] translate-x-24 translate-y-20 hover:translate-y-10",
+    className:
+      "[grid-area:stack] translate-x-24 translate-y-20 hover:translate-y-10",
   },
-]
+];
 
 const exampleData1 = {
   title: (
@@ -77,9 +85,11 @@ const exampleData1 = {
       and earnings for the week ahead.
     </>
   ),
-  primaryImageSrc: "https://www.fey.com/marketing/_next/static/media/newsletter-desktop-2_4x.e594b737.png",
-  secondaryImageSrc: "https://www.fey.com/marketing/_next/static/media/newsletter-desktop-1_4x.9cc114e6.png",
-}
+  primaryImageSrc:
+    "https://www.fey.com/marketing/_next/static/media/newsletter-desktop-2_4x.e594b737.png",
+  secondaryImageSrc:
+    "https://www.fey.com/marketing/_next/static/media/newsletter-desktop-1_4x.9cc114e6.png",
+};
 
 const dotLoaderFrames = [
   [0, 7, 14, 21, 28, 35, 42], // Diagonal 1
@@ -92,36 +102,36 @@ const dotLoaderFrames = [
   [48, 41, 34, 27, 20, 13, 6], // Reverse Diagonal 7
   [47, 40, 33, 26, 19, 12, 5], // Reverse Diagonal 6
   [46, 39, 32, 25, 18, 11, 4], // Reverse Diagonal 5
-]
+];
 
 export default function LandingPage() {
-  const transparencyRef = useRef<HTMLDivElement>(null)
-  const [showMoreCalendar, setShowMoreCalendar] = useState(false)
+  const transparencyRef = useRef<HTMLDivElement>(null);
+  const [showMoreCalendar, setShowMoreCalendar] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setShowMoreCalendar(true)
+          setShowMoreCalendar(true);
         }
       },
       {
         root: null, // viewport
         rootMargin: "0px",
         threshold: 0.5, // Trigger when 50% of the section is visible
-      },
-    )
+      }
+    );
 
     if (transparencyRef.current) {
-      observer.observe(transparencyRef.current)
+      observer.observe(transparencyRef.current);
     }
 
     return () => {
       if (transparencyRef.current) {
-        observer.unobserve(transparencyRef.current)
+        observer.unobserve(transparencyRef.current);
       }
-    }
-  }, [])
+    };
+  }, []);
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
@@ -136,10 +146,15 @@ export default function LandingPage() {
               height={32}
               className="rounded-lg"
             />
-            <span className="text-xl font-semibold tracking-tight text-zinc-900">Code Collective</span>
+            <span className="text-xl font-semibold tracking-tight text-zinc-900">
+              Code Collective
+            </span>
           </Link>
           <nav className="hidden md:flex items-center gap-8">
-            <Link href="#solutions" className="text-sm font-medium text-zinc-700 hover:text-zinc-900 transition-colors">
+            <Link
+              href="#solutions"
+              className="text-sm font-medium text-zinc-700 hover:text-zinc-900 transition-colors"
+            >
               Solutions
             </Link>
             <Link
@@ -154,15 +169,25 @@ export default function LandingPage() {
             >
               Case Studies
             </Link>
-            <Link href="#pricing" className="text-sm font-medium text-zinc-700 hover:text-zinc-900 transition-colors">
+            <Link
+              href="#pricing"
+              className="text-sm font-medium text-zinc-700 hover:text-zinc-900 transition-colors"
+            >
               Pricing
             </Link>
           </nav>
           <div className="flex items-center gap-3">
-            <Button variant="ghost" size="sm" className="text-zinc-700 hover:text-zinc-900">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-zinc-700 hover:text-zinc-900"
+            >
               Contact Sales
             </Button>
-            <Button size="sm" className="bg-zinc-900 hover:bg-zinc-800 text-white">
+            <Button
+              size="sm"
+              className="bg-zinc-900 hover:bg-zinc-800 text-white"
+            >
               Get Started
             </Button>
           </div>
@@ -173,79 +198,7 @@ export default function LandingPage() {
         {/* Hero Section */}
         <section className="relative w-full pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden">
           <div className="container px-4 md:px-6">
-            <div className="mx-auto max-w-4xl text-center space-y-8">
-              <div className="space-y-6">
-                <Badge
-                  variant="secondary"
-                  className="bg-zinc-100 text-zinc-700 border-0 animate-fade-in-up"
-                  style={{ animationDelay: "0.1s" }}
-                >
-                  Trusted by 200+ companies worldwide
-                </Badge>
-                <h1
-                  className="text-4xl font-bold tracking-tight text-zinc-900 sm:text-6xl lg:text-7xl animate-fade-in-up"
-                  style={{ animationDelay: "0.2s" }}
-                >
-                  Enterprise web development
-                  <span className="block text-violet-600">that scales</span>
-                </h1>
-                <p
-                  className="mx-auto max-w-2xl text-xl text-zinc-600 leading-relaxed animate-fade-in-up"
-                  style={{ animationDelay: "0.3s" }}
-                >
-                  We build mission-critical web applications and integrations for companies that demand reliability,
-                  security, and performance at scale.
-                </p>
-              </div>
-              <div
-                className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up"
-                style={{ animationDelay: "0.4s" }}
-              >
-                <Button
-                  size="lg"
-                  className="bg-zinc-900 hover:bg-zinc-800 text-white px-8 transition-transform hover:scale-105"
-                >
-                  Start building
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="px-8 bg-transparent transition-transform hover:scale-105"
-                >
-                  View case studies
-                </Button>
-              </div>
-              <div className="pt-8 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-6">
-                  <div className="flex items-center gap-2 bg-zinc-50 px-3 py-1 rounded-full">
-                    <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
-                      <span className="text-white text-xs font-bold">✓</span>
-                    </div>
-                    <span className="text-xs font-medium text-zinc-600">SOC 2 Compliant</span>
-                  </div>
-                  <div className="flex items-center gap-2 bg-zinc-50 px-3 py-1 rounded-full">
-                    <div className="w-4 h-4 bg-blue-500 rounded-full flex items-center justify-center">
-                      <span className="text-white text-xs font-bold">★</span>
-                    </div>
-                    <span className="text-xs font-medium text-zinc-600">Vercel Partner</span>
-                  </div>
-                  <div className="flex items-center gap-2 bg-zinc-50 px-3 py-1 rounded-full">
-                    <div className="w-4 h-4 bg-orange-500 rounded-full flex items-center justify-center">
-                      <span className="text-white text-xs font-bold">⚡</span>
-                    </div>
-                    <span className="text-xs font-medium text-zinc-600">99.9% Uptime</span>
-                  </div>
-                </div>
-                <p className="text-sm text-zinc-500 mb-6">Trusted by industry leaders</p>
-                <div className="flex items-center justify-center gap-8 opacity-60">
-                  <div className="text-2xl font-bold text-zinc-400">TechFlow</div>
-                  <div className="text-2xl font-bold text-zinc-400">DataSync</div>
-                  <div className="text-2xl font-bold text-zinc-400">Artisan</div>
-                  <div className="text-2xl font-bold text-zinc-400">FlowCorp</div>
-                </div>
-              </div>
-            </div>
+            <HeroSection />
           </div>
         </section>
 
@@ -257,15 +210,24 @@ export default function LandingPage() {
                 <div className="text-3xl font-bold text-zinc-900">200+</div>
                 <div className="text-sm text-zinc-600">Projects delivered</div>
               </div>
-              <div className="text-center scroll-animate" style={{ animationDelay: "0.1s" }}>
+              <div
+                className="text-center scroll-animate"
+                style={{ animationDelay: "0.1s" }}
+              >
                 <div className="text-3xl font-bold text-zinc-900">99.9%</div>
                 <div className="text-sm text-zinc-600">Uptime SLA</div>
               </div>
-              <div className="text-center scroll-animate" style={{ animationDelay: "0.2s" }}>
+              <div
+                className="text-center scroll-animate"
+                style={{ animationDelay: "0.2s" }}
+              >
                 <div className="text-3xl font-bold text-zinc-900">50+</div>
                 <div className="text-sm text-zinc-600">Enterprise clients</div>
               </div>
-              <div className="text-center scroll-animate" style={{ animationDelay: "0.3s" }}>
+              <div
+                className="text-center scroll-animate"
+                style={{ animationDelay: "0.3s" }}
+              >
                 <div className="text-3xl font-bold text-zinc-900">24/7</div>
                 <div className="text-sm text-zinc-600">Support available</div>
               </div>
@@ -281,12 +243,19 @@ export default function LandingPage() {
                 <h2 className="text-2xl font-bold tracking-tight text-zinc-50 scroll-animate">
                   Powered by the AI & Development vanguard
                 </h2>
-                <p className="text-zinc-400 max-w-2xl mx-auto scroll-animate" style={{ animationDelay: "0.1s" }}>
-                  We leverage the best tools and platforms to deliver exceptional results for our clients.
+                <p
+                  className="text-zinc-400 max-w-2xl mx-auto scroll-animate"
+                  style={{ animationDelay: "0.1s" }}
+                >
+                  We leverage the best tools and platforms to deliver
+                  exceptional results for our clients.
                 </p>
               </div>
 
-              <div className="group scroll-animate" style={{ animationDelay: "0.2s" }}>
+              <div
+                className="group scroll-animate"
+                style={{ animationDelay: "0.2s" }}
+              >
                 {/* First Marquee - Left to Right */}
                 <div className="relative">
                   <div className="flex overflow-hidden">
@@ -304,7 +273,10 @@ export default function LandingPage() {
                             { name: "GitHub", src: "/logos/github.png" },
                             { name: "Figma", src: "/logos/figma.png" },
                           ].map((logo) => (
-                            <div key={logo.name} className="group/item relative flex-shrink-0">
+                            <div
+                              key={logo.name}
+                              className="group/item relative flex-shrink-0"
+                            >
                               <div className="w-16 h-16 bg-zinc-800 rounded-lg shadow-sm border border-zinc-700 flex items-center justify-center hover:shadow-lg hover:border-violet-500 transition-all duration-300">
                                 <Image
                                   src={logo.src || "/placeholder.svg"}
@@ -338,7 +310,10 @@ export default function LandingPage() {
                           {[
                             { name: "React", src: "/logos/react.png" },
                             { name: "Next.js", src: "/logos/nextjs.png" },
-                            { name: "TypeScript", src: "/logos/typescript.png" },
+                            {
+                              name: "TypeScript",
+                              src: "/logos/typescript.png",
+                            },
                             { name: "Tailwind", src: "/logos/tailwind.png" },
                             { name: "Vercel", src: "/logos/vercel.png" },
                             { name: "Stripe", src: "/logos/stripe.png" },
@@ -346,7 +321,10 @@ export default function LandingPage() {
                             { name: "Supabase", src: "/logos/supabase.png" },
                             { name: "Node.js", src: "/logos/nodejs.png" },
                           ].map((logo) => (
-                            <div key={logo.name} className="group/item relative flex-shrink-0">
+                            <div
+                              key={logo.name}
+                              className="group/item relative flex-shrink-0"
+                            >
                               <div className="w-16 h-16 bg-zinc-800 rounded-lg shadow-sm border border-zinc-700 flex items-center justify-center hover:shadow-lg hover:border-violet-500 transition-all duration-300">
                                 <Image
                                   src={logo.src || "/placeholder.svg"}
@@ -377,25 +355,33 @@ export default function LandingPage() {
                 className="space-y-6 pt-8 border-t border-zinc-800 scroll-animate"
                 style={{ animationDelay: "0.3s" }}
               >
-                <h3 className="text-lg font-semibold text-zinc-50">Certifications & Partnerships</h3>
+                <h3 className="text-lg font-semibold text-zinc-50">
+                  Certifications & Partnerships
+                </h3>
                 <div className="flex flex-wrap items-center justify-center gap-8">
                   <div className="flex items-center gap-2 bg-zinc-800 px-4 py-2 rounded-lg">
                     <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
                       <span className="text-white text-xs font-bold">✓</span>
                     </div>
-                    <span className="text-sm font-medium text-zinc-300">SOC 2 Type II Compliant</span>
+                    <span className="text-sm font-medium text-zinc-300">
+                      SOC 2 Type II Compliant
+                    </span>
                   </div>
                   <div className="flex items-center gap-2 bg-zinc-800 px-4 py-2 rounded-lg">
                     <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
                       <span className="text-white text-xs font-bold">★</span>
                     </div>
-                    <span className="text-sm font-medium text-zinc-300">Vercel Partner</span>
+                    <span className="text-sm font-medium text-zinc-300">
+                      Vercel Partner
+                    </span>
                   </div>
                   <div className="flex items-center gap-2 bg-zinc-800 px-4 py-2 rounded-lg">
                     <div className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center">
                       <span className="text-white text-xs font-bold">◆</span>
                     </div>
-                    <span className="text-sm font-medium text-zinc-300">AWS Certified</span>
+                    <span className="text-sm font-medium text-zinc-300">
+                      AWS Certified
+                    </span>
                   </div>
                 </div>
               </div>
@@ -413,14 +399,22 @@ export default function LandingPage() {
         />
 
         {/* Transparency Section */}
-        <section id="transparency" ref={transparencyRef} className="w-full py-20 md:py-32 bg-black text-white">
+        <section
+          id="transparency"
+          ref={transparencyRef}
+          className="w-full py-20 md:py-32 bg-black text-white"
+        >
           <div className="container px-4 md:px-6">
             <div className="mx-auto max-w-3xl text-center space-y-4 mb-16">
               <h2 className="text-3xl font-bold tracking-tight text-zinc-50 md:text-4xl scroll-animate">
                 Visualize Your Bookings
               </h2>
-              <p className="text-xl text-zinc-400 scroll-animate" style={{ animationDelay: "0.1s" }}>
-                See how our interactive calendar simplifies scheduling and event management.
+              <p
+                className="text-xl text-zinc-400 scroll-animate"
+                style={{ animationDelay: "0.1s" }}
+              >
+                See how our interactive calendar simplifies scheduling and event
+                management.
               </p>
             </div>
             <InteractiveCalendar forceMoreView={showMoreCalendar} />
@@ -434,30 +428,57 @@ export default function LandingPage() {
               <h2 className="text-3xl font-bold tracking-tight text-zinc-900 md:text-4xl scroll-animate">
                 Unleash Blazing Fast Performance
               </h2>
-              <p className="text-xl text-zinc-600 scroll-animate" style={{ animationDelay: "0.1s" }}>
-                We optimize every byte to ensure your website delivers an exceptional user experience and ranks higher.
+              <p
+                className="text-xl text-zinc-600 scroll-animate"
+                style={{ animationDelay: "0.1s" }}
+              >
+                We optimize every byte to ensure your website delivers an
+                exceptional user experience and ranks higher.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
               <div className="flex flex-col items-center space-y-4 scroll-animate">
                 <Gauge size={150} primary={"success"} value={95} />
-                <h3 className="text-lg font-semibold text-zinc-900">Performance</h3>
-                <p className="text-sm text-zinc-600">Optimized for speed and efficiency.</p>
+                <h3 className="text-lg font-semibold text-zinc-900">
+                  Performance
+                </h3>
+                <p className="text-sm text-zinc-600">
+                  Optimized for speed and efficiency.
+                </p>
               </div>
-              <div className="flex flex-col items-center space-y-4 scroll-animate" style={{ animationDelay: "0.1s" }}>
+              <div
+                className="flex flex-col items-center space-y-4 scroll-animate"
+                style={{ animationDelay: "0.1s" }}
+              >
                 <Gauge size={150} primary={"info"} value={98} />
-                <h3 className="text-lg font-semibold text-zinc-900">Accessibility</h3>
-                <p className="text-sm text-zinc-600">Inclusive design for all users.</p>
+                <h3 className="text-lg font-semibold text-zinc-900">
+                  Accessibility
+                </h3>
+                <p className="text-sm text-zinc-600">
+                  Inclusive design for all users.
+                </p>
               </div>
-              <div className="flex flex-col items-center space-y-4 scroll-animate" style={{ animationDelay: "0.2s" }}>
+              <div
+                className="flex flex-col items-center space-y-4 scroll-animate"
+                style={{ animationDelay: "0.2s" }}
+              >
                 <Gauge size={150} primary={"warning"} value={92} />
                 <h3 className="text-lg font-semibold text-zinc-900">SEO</h3>
-                <p className="text-sm text-zinc-600">Rank higher, get discovered.</p>
+                <p className="text-sm text-zinc-600">
+                  Rank higher, get discovered.
+                </p>
               </div>
-              <div className="flex flex-col items-center space-y-4 scroll-animate" style={{ animationDelay: "0.3s" }}>
+              <div
+                className="flex flex-col items-center space-y-4 scroll-animate"
+                style={{ animationDelay: "0.3s" }}
+              >
                 <Gauge size={150} primary={"danger"} value={90} />
-                <h3 className="text-lg font-semibold text-zinc-900">Best Practices</h3>
-                <p className="text-sm text-zinc-600">Adhering to industry standards.</p>
+                <h3 className="text-lg font-semibold text-zinc-900">
+                  Best Practices
+                </h3>
+                <p className="text-sm text-zinc-600">
+                  Adhering to industry standards.
+                </p>
               </div>
             </div>
             <div className="mt-16 text-center">
@@ -465,8 +486,9 @@ export default function LandingPage() {
                 Deep Dive into Your Website's Health
               </h3>
               <p className="text-lg text-zinc-600 max-w-2xl mx-auto mb-8 scroll-animate">
-                Our expertise covers comprehensive analytics, cutting-edge SEO strategies, and meticulous Lighthouse
-                score optimization to ensure your digital presence is top-tier.
+                Our expertise covers comprehensive analytics, cutting-edge SEO
+                strategies, and meticulous Lighthouse score optimization to
+                ensure your digital presence is top-tier.
               </p>
               <div className="flex flex-col sm:flex-row justify-center items-center gap-8">
                 <div className="flex flex-col items-center gap-4 scroll-animate">
@@ -479,11 +501,17 @@ export default function LandingPage() {
                   />
                   <p className="text-sm text-zinc-600">Real-time Analysis</p>
                 </div>
-                <div className="flex flex-col items-center gap-4 scroll-animate" style={{ animationDelay: "0.1s" }}>
+                <div
+                  className="flex flex-col items-center gap-4 scroll-animate"
+                  style={{ animationDelay: "0.1s" }}
+                >
                   <Search className="h-12 w-12 text-zinc-700" />
                   <p className="text-sm text-zinc-600">SEO Mastery</p>
                 </div>
-                <div className="flex flex-col items-center gap-4 scroll-animate" style={{ animationDelay: "0.2s" }}>
+                <div
+                  className="flex flex-col items-center gap-4 scroll-animate"
+                  style={{ animationDelay: "0.2s" }}
+                >
                   <BarChart className="h-12 w-12 text-zinc-700" />
                   <p className="text-sm text-zinc-600">Actionable Analytics</p>
                 </div>
@@ -500,8 +528,12 @@ export default function LandingPage() {
                 <h2 className="text-3xl font-bold tracking-tight text-zinc-900 md:text-4xl scroll-animate">
                   Built for modern enterprises
                 </h2>
-                <p className="text-xl text-zinc-600 scroll-animate" style={{ animationDelay: "0.1s" }}>
-                  From API integrations to full-stack platforms, we deliver solutions that power business growth.
+                <p
+                  className="text-xl text-zinc-600 scroll-animate"
+                  style={{ animationDelay: "0.1s" }}
+                >
+                  From API integrations to full-stack platforms, we deliver
+                  solutions that power business growth.
                 </p>
               </div>
               <div className="flex justify-center">
@@ -517,7 +549,10 @@ export default function LandingPage() {
             <div className="grid gap-12 lg:grid-cols-2 items-center">
               <div className="space-y-8">
                 <div className="space-y-4">
-                  <Badge variant="secondary" className="bg-zinc-200 text-zinc-700 scroll-animate">
+                  <Badge
+                    variant="secondary"
+                    className="bg-zinc-200 text-zinc-700 scroll-animate"
+                  >
                     Enterprise Ready
                   </Badge>
                   <h2
@@ -530,45 +565,74 @@ export default function LandingPage() {
                     className="text-xl text-zinc-600 leading-relaxed scroll-animate"
                     style={{ animationDelay: "0.2s" }}
                   >
-                    Our solutions meet the highest standards for security, compliance, and performance that enterprise
-                    organizations require.
+                    Our solutions meet the highest standards for security,
+                    compliance, and performance that enterprise organizations
+                    require.
                   </p>
                 </div>
                 <div className="grid gap-6 sm:grid-cols-2">
-                  <div className="flex gap-3 scroll-animate" style={{ animationDelay: "0.3s" }}>
+                  <div
+                    className="flex gap-3 scroll-animate"
+                    style={{ animationDelay: "0.3s" }}
+                  >
                     <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Shield className="h-4 w-4 text-green-600" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-zinc-900">SOC 2 Compliant</h3>
-                      <p className="text-sm text-zinc-600">Enterprise-grade security and compliance standards</p>
+                      <h3 className="font-semibold text-zinc-900">
+                        SOC 2 Compliant
+                      </h3>
+                      <p className="text-sm text-zinc-600">
+                        Enterprise-grade security and compliance standards
+                      </p>
                     </div>
                   </div>
-                  <div className="flex gap-3 scroll-animate" style={{ animationDelay: "0.4s" }}>
+                  <div
+                    className="flex gap-3 scroll-animate"
+                    style={{ animationDelay: "0.4s" }}
+                  >
                     <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Zap className="h-4 w-4 text-blue-600" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-zinc-900">99.9% Uptime</h3>
-                      <p className="text-sm text-zinc-600">Guaranteed availability with comprehensive monitoring</p>
+                      <h3 className="font-semibold text-zinc-900">
+                        99.9% Uptime
+                      </h3>
+                      <p className="text-sm text-zinc-600">
+                        Guaranteed availability with comprehensive monitoring
+                      </p>
                     </div>
                   </div>
-                  <div className="flex gap-3 scroll-animate" style={{ animationDelay: "0.5s" }}>
+                  <div
+                    className="flex gap-3 scroll-animate"
+                    style={{ animationDelay: "0.5s" }}
+                  >
                     <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Users className="h-4 w-4 text-purple-600" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-zinc-900">Dedicated Support</h3>
-                      <p className="text-sm text-zinc-600">24/7 technical support with dedicated account management</p>
+                      <h3 className="font-semibold text-zinc-900">
+                        Dedicated Support
+                      </h3>
+                      <p className="text-sm text-zinc-600">
+                        24/7 technical support with dedicated account management
+                      </p>
                     </div>
                   </div>
-                  <div className="flex gap-3 scroll-animate" style={{ animationDelay: "0.6s" }}>
+                  <div
+                    className="flex gap-3 scroll-animate"
+                    style={{ animationDelay: "0.6s" }}
+                  >
                     <div className="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <GaugeIcon className="h-4 w-4 text-orange-600" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-zinc-900">Performance SLA</h3>
-                      <p className="text-sm text-zinc-600">Sub-second response times with global CDN</p>
+                      <h3 className="font-semibold text-zinc-900">
+                        Performance SLA
+                      </h3>
+                      <p className="text-sm text-zinc-600">
+                        Sub-second response times with global CDN
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -578,15 +642,21 @@ export default function LandingPage() {
                 style={{ animationDelay: "0.2s" }}
               >
                 <div className="p-8 text-center">
-                  <div className="text-2xl font-bold text-zinc-900 mb-2">Enterprise Dashboard</div>
-                  <div className="text-zinc-600">Real-time monitoring and analytics</div>
+                  <div className="text-2xl font-bold text-zinc-900 mb-2">
+                    Enterprise Dashboard
+                  </div>
+                  <div className="text-zinc-600">
+                    Real-time monitoring and analytics
+                  </div>
                   <div className="mt-6 grid grid-cols-2 gap-4 text-sm">
                     <div className="bg-white/50 rounded-lg p-3">
                       <div className="font-semibold text-green-600">99.9%</div>
                       <div className="text-zinc-600">Uptime</div>
                     </div>
                     <div className="bg-white/50 rounded-lg p-3">
-                      <div className="font-semibold text-blue-600">&lt; 100ms</div>
+                      <div className="font-semibold text-blue-600">
+                        &lt; 100ms
+                      </div>
                       <div className="text-zinc-600">Response</div>
                     </div>
                   </div>
@@ -603,8 +673,12 @@ export default function LandingPage() {
               <h2 className="text-3xl font-bold tracking-tight text-zinc-900 md:text-4xl scroll-animate">
                 Trusted by industry leaders
               </h2>
-              <p className="text-xl text-zinc-600 scroll-animate" style={{ animationDelay: "0.1s" }}>
-                See how we've helped companies scale their digital infrastructure and drive growth.
+              <p
+                className="text-xl text-zinc-600 scroll-animate"
+                style={{ animationDelay: "0.1s" }}
+              >
+                See how we've helped companies scale their digital
+                infrastructure and drive growth.
               </p>
             </div>
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -612,12 +686,15 @@ export default function LandingPage() {
                 <Card className="border-0 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group scroll-animate">
                   <div className="aspect-video bg-gradient-to-br from-blue-50 to-blue-100 rounded-t-lg"></div>
                   <CardHeader>
-                    <CardTitle className="text-lg">Twilio Integration Platform</CardTitle>
+                    <CardTitle className="text-lg">
+                      Twilio Integration Platform
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-zinc-600 text-sm leading-relaxed mb-4">
-                      Built a comprehensive communication platform handling 1M+ messages daily with real-time analytics
-                      and enterprise-grade reliability.
+                      Built a comprehensive communication platform handling 1M+
+                      messages daily with real-time analytics and
+                      enterprise-grade reliability.
                     </p>
                   </CardContent>
                 </Card>
@@ -629,12 +706,15 @@ export default function LandingPage() {
                 >
                   <div className="aspect-video bg-gradient-to-br from-green-50 to-green-100 rounded-t-lg"></div>
                   <CardHeader>
-                    <CardTitle className="text-lg">Swell E-commerce Platform</CardTitle>
+                    <CardTitle className="text-lg">
+                      Swell E-commerce Platform
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-zinc-600 text-sm leading-relaxed mb-4">
-                      Headless commerce solution processing $2M+ in transactions monthly with advanced inventory
-                      management and multi-channel support.
+                      Headless commerce solution processing $2M+ in transactions
+                      monthly with advanced inventory management and
+                      multi-channel support.
                     </p>
                   </CardContent>
                 </Card>
@@ -646,12 +726,15 @@ export default function LandingPage() {
                 >
                   <div className="aspect-video bg-gradient-to-br from-purple-50 to-purple-100 rounded-t-lg"></div>
                   <CardHeader>
-                    <CardTitle className="text-lg">Analytics Dashboard</CardTitle>
+                    <CardTitle className="text-lg">
+                      Analytics Dashboard
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-zinc-600 text-sm leading-relaxed mb-4">
-                      Real-time data visualization platform processing 100GB+ daily with advanced machine learning
-                      insights and predictive analytics.
+                      Real-time data visualization platform processing 100GB+
+                      daily with advanced machine learning insights and
+                      predictive analytics.
                     </p>
                   </CardContent>
                 </Card>
@@ -667,18 +750,26 @@ export default function LandingPage() {
               <h2 className="text-3xl font-bold tracking-tight text-zinc-900 md:text-4xl scroll-animate">
                 Transparent, scalable pricing
               </h2>
-              <p className="text-xl text-zinc-600 scroll-animate" style={{ animationDelay: "0.1s" }}>
-                From startups to enterprise, we have a solution that scales with your business needs.
+              <p
+                className="text-xl text-zinc-600 scroll-animate"
+                style={{ animationDelay: "0.1s" }}
+              >
+                From startups to enterprise, we have a solution that scales with
+                your business needs.
               </p>
             </div>
             <div className="grid gap-8 lg:grid-cols-3 max-w-6xl mx-auto">
               <Card className="border-0 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 scroll-animate">
                 <CardHeader className="pb-8">
-                  <CardTitle className="text-xl text-zinc-900">Starter</CardTitle>
+                  <CardTitle className="text-xl text-zinc-900">
+                    Starter
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-baseline gap-1">
-                    <span className="text-4xl font-bold text-zinc-900">$4,999</span>
+                    <span className="text-4xl font-bold text-zinc-900">
+                      $4,999
+                    </span>
                     <span className="text-zinc-500">per project</span>
                   </div>
                 </CardContent>
@@ -697,16 +788,22 @@ export default function LandingPage() {
                   <Badge className="bg-zinc-900 text-white">Most Popular</Badge>
                 </div>
                 <CardHeader className="pb-8 pt-8">
-                  <CardTitle className="text-xl text-zinc-900">Professional</CardTitle>
+                  <CardTitle className="text-xl text-zinc-900">
+                    Professional
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-baseline gap-1">
-                    <span className="text-4xl font-bold text-zinc-900">$12,999</span>
+                    <span className="text-4xl font-bold text-zinc-900">
+                      $12,999
+                    </span>
                     <span className="text-zinc-500">per project</span>
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full bg-zinc-900 hover:bg-zinc-800">Get Started</Button>
+                  <Button className="w-full bg-zinc-900 hover:bg-zinc-800">
+                    Get Started
+                  </Button>
                 </CardFooter>
               </Card>
 
@@ -715,13 +812,19 @@ export default function LandingPage() {
                 style={{ animationDelay: "0.2s" }}
               >
                 <CardHeader className="pb-8">
-                  <CardTitle className="text-xl text-zinc-900">Enterprise</CardTitle>
+                  <CardTitle className="text-xl text-zinc-900">
+                    Enterprise
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-baseline gap-1">
-                    <span className="text-4xl font-bold text-zinc-900">Custom</span>
+                    <span className="text-4xl font-bold text-zinc-900">
+                      Custom
+                    </span>
                   </div>
-                  <p className="text-sm text-zinc-500 mt-1">Starting at $25,000</p>
+                  <p className="text-sm text-zinc-500 mt-1">
+                    Starting at $25,000
+                  </p>
                 </CardContent>
                 <CardFooter>
                   <Button className="w-full bg-transparent" variant="outline">
@@ -739,9 +842,15 @@ export default function LandingPage() {
             <div className="mx-auto max-w-3xl text-center space-y-8">
               <div className="space-y-4">
                 <div className="flex justify-center scroll-animate">
-                  <AppleHelloEnglishEffect className="h-24 text-zinc-900" speed={3} />
+                  <AppleHelloEnglishEffect
+                    className="h-24 text-zinc-900"
+                    speed={3}
+                  />
                 </div>
-                <p className="text-xl text-zinc-600 scroll-animate" style={{ animationDelay: "0.1s" }}>
+                <p
+                  className="text-xl text-zinc-600 scroll-animate"
+                  style={{ animationDelay: "0.1s" }}
+                >
                   Let's build something extraordinary together.
                 </p>
               </div>
@@ -781,17 +890,21 @@ export default function LandingPage() {
                 height={32}
                 className="rounded-lg"
               />
-              <span className="text-xl font-semibold tracking-tight text-zinc-900">Code Collective</span>
+              <span className="text-xl font-semibold tracking-tight text-zinc-900">
+                Code Collective
+              </span>
             </div>
             <p className="text-zinc-600 max-w-md">
-              Enterprise web development solutions that scale with your business. Led by Lacy Morrow.
+              Enterprise web development solutions that scale with your
+              business. Led by Lacy Morrow.
             </p>
           </div>
           <div className="mt-8 border-t border-zinc-200 pt-6 text-center text-sm text-zinc-500">
-            &copy; {new Date().getFullYear()} Code Collective. All rights reserved.
+            &copy; {new Date().getFullYear()} Code Collective. All rights
+            reserved.
           </div>
         </div>
       </footer>
     </div>
-  )
+  );
 }
