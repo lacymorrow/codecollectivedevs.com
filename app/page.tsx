@@ -135,71 +135,10 @@ export default function LandingPage() {
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
-      {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b border-zinc-200/80 bg-white/80 backdrop-blur-xl">
-        <div className="container flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center gap-3">
-            <Image
-              src="/code-collective-logo.png"
-              alt="Code Collective Devs"
-              width={32}
-              height={32}
-              className="rounded-lg"
-            />
-            <span className="text-xl font-semibold tracking-tight text-zinc-900">
-              Code Collective
-            </span>
-          </Link>
-          <nav className="hidden md:flex items-center gap-8">
-            <Link
-              href="#solutions"
-              className="text-sm font-medium text-zinc-700 hover:text-zinc-900 transition-colors"
-            >
-              Solutions
-            </Link>
-            <Link
-              href="#enterprise"
-              className="text-sm font-medium text-zinc-700 hover:text-zinc-900 transition-colors"
-            >
-              Enterprise
-            </Link>
-            <Link
-              href="#case-studies"
-              className="text-sm font-medium text-zinc-700 hover:text-zinc-900 transition-colors"
-            >
-              Case Studies
-            </Link>
-            <Link
-              href="#pricing"
-              className="text-sm font-medium text-zinc-700 hover:text-zinc-900 transition-colors"
-            >
-              Pricing
-            </Link>
-          </nav>
-          <div className="flex items-center gap-3">
-            <Button
-              variant="ghost"
-              size="sm"
-              className="text-zinc-700 hover:text-zinc-900"
-            >
-              Contact Sales
-            </Button>
-            <Button
-              size="sm"
-              className="bg-zinc-900 hover:bg-zinc-800 text-white"
-            >
-              Get Started
-            </Button>
-          </div>
-        </div>
-      </header>
-
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative w-full pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden">
-          <div className="container px-4 md:px-6">
-            <HeroSection />
-          </div>
+          <HeroSection />
         </section>
 
         {/* Stats Section */}
