@@ -1,5 +1,6 @@
 "use client";
 
+import { Booker } from "@calcom/atoms";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -119,7 +120,7 @@ export default function LandingPage() {
         root: null, // viewport
         rootMargin: "0px",
         threshold: 0.5, // Trigger when 50% of the section is visible
-      }
+      },
     );
 
     if (transparencyRef.current) {
@@ -463,7 +464,7 @@ export default function LandingPage() {
         <section id="solutions" className="w-full py-20 md:py-32">
           <div className="container px-4 md:px-6">
             <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-              <div className="lg:text-left lg:mx-0 lg:mb-0 text-center space-y-4 mb-16">
+              <div className="text-center space-y-4 mb-16">
                 <h2 className="text-3xl font-bold tracking-tight text-zinc-900 md:text-4xl scroll-animate">
                   Built for modern enterprises
                 </h2>
@@ -486,14 +487,16 @@ export default function LandingPage() {
         <section id="enterprise" className="w-full py-20 md:py-32 bg-zinc-50">
           <div className="container px-4 md:px-6">
             <div className="grid gap-12 lg:grid-cols-2 items-center">
-              <div className="space-y-8">
+              <div className="space-y-8 text-center lg:text-left">
                 <div className="space-y-4">
-                  <Badge
-                    variant="secondary"
-                    className="bg-zinc-200 text-zinc-700 scroll-animate"
-                  >
-                    Enterprise Ready
-                  </Badge>
+                  <div className="flex justify-center lg:justify-start">
+                    <Badge
+                      variant="secondary"
+                      className="bg-zinc-200 text-zinc-700 scroll-animate"
+                    >
+                      Enterprise Ready
+                    </Badge>
+                  </div>
                   <h2
                     className="text-3xl font-bold tracking-tight text-zinc-900 md:text-4xl scroll-animate"
                     style={{ animationDelay: "0.1s" }}
@@ -509,7 +512,7 @@ export default function LandingPage() {
                     require.
                   </p>
                 </div>
-                <div className="grid gap-6 sm:grid-cols-2">
+                <div className="grid gap-6 sm:grid-cols-2 text-left">
                   <div
                     className="flex gap-3 scroll-animate"
                     style={{ animationDelay: "0.3s" }}
