@@ -1,29 +1,34 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import type { TargetAndTransition } from "motion/react"
-import { motion } from "motion/react"
+import type { TargetAndTransition } from "motion/react";
+import { motion } from "motion/react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 const initialProps: TargetAndTransition = {
   pathLength: 0,
   opacity: 0,
-}
+};
 
 const animateProps: TargetAndTransition = {
   pathLength: 1,
   opacity: 1,
-}
+};
 
 type Props = React.ComponentProps<typeof motion.svg> & {
-  speed?: number
-  onAnimationComplete?: () => void
-}
+  speed?: number;
+  onAnimationComplete?: () => void;
+};
 
-function AppleHelloVietnameseEffect({ className, speed = 1, onAnimationComplete, ...props }: Props) {
-  const calc = (x: number) => x * speed
+function AppleHelloVietnameseEffect({
+  className,
+  speed = 1,
+  onAnimationComplete,
+  ...props
+}: Props) {
+  const calc = (x: number) => x * speed;
 
   return (
     <motion.svg
@@ -48,7 +53,7 @@ function AppleHelloVietnameseEffect({ className, speed = 1, onAnimationComplete,
         animate={animateProps}
         transition={{
           duration: calc(0.3),
-          ease: "easeInOut",
+          ease: [0.4, 0, 0.6, 1],
           opacity: { duration: 0.15 },
         }}
       />
@@ -61,7 +66,7 @@ function AppleHelloVietnameseEffect({ className, speed = 1, onAnimationComplete,
         animate={animateProps}
         transition={{
           duration: calc(0.7),
-          ease: "easeInOut",
+          ease: [0.4, 0, 0.6, 1],
           delay: calc(0.4),
           opacity: { duration: 0.35, delay: calc(0.4) },
         }}
@@ -75,7 +80,7 @@ function AppleHelloVietnameseEffect({ className, speed = 1, onAnimationComplete,
         animate={animateProps}
         transition={{
           duration: calc(0.5),
-          ease: "easeOut",
+          ease: [0, 0, 0.2, 1],
           delay: calc(1),
           opacity: { duration: 0.25, delay: calc(1) },
         }}
@@ -89,7 +94,7 @@ function AppleHelloVietnameseEffect({ className, speed = 1, onAnimationComplete,
         animate={animateProps}
         transition={{
           duration: calc(0.3),
-          ease: "easeOut",
+          ease: [0, 0, 0.2, 1],
           delay: calc(1.5),
           opacity: { duration: 0.15, delay: calc(1.5) },
         }}
@@ -103,7 +108,7 @@ function AppleHelloVietnameseEffect({ className, speed = 1, onAnimationComplete,
         animate={animateProps}
         transition={{
           duration: calc(0.9),
-          ease: "easeOut",
+          ease: [0, 0, 0.2, 1],
           delay: calc(1.8),
           opacity: { duration: 0.45, delay: calc(1.8) },
         }}
@@ -117,7 +122,7 @@ function AppleHelloVietnameseEffect({ className, speed = 1, onAnimationComplete,
         animate={animateProps}
         transition={{
           duration: calc(1.1),
-          ease: "easeInOut",
+          ease: [0.4, 0, 0.6, 1],
           delay: calc(2.6),
           opacity: { duration: 0.55, delay: calc(2.6) },
         }}
@@ -131,7 +136,7 @@ function AppleHelloVietnameseEffect({ className, speed = 1, onAnimationComplete,
         animate={animateProps}
         transition={{
           duration: calc(1),
-          ease: "easeInOut",
+          ease: [0.4, 0, 0.6, 1],
           delay: calc(3.6),
           opacity: { duration: 0.5, delay: calc(3.6) },
         }}
@@ -145,7 +150,7 @@ function AppleHelloVietnameseEffect({ className, speed = 1, onAnimationComplete,
         animate={animateProps}
         transition={{
           duration: calc(0.8),
-          ease: "easeOut",
+          ease: [0, 0, 0.2, 1],
           delay: calc(4.6),
           opacity: { duration: 0.4, delay: calc(4.6) },
         }}
@@ -159,7 +164,7 @@ function AppleHelloVietnameseEffect({ className, speed = 1, onAnimationComplete,
         animate={animateProps}
         transition={{
           duration: calc(1.5),
-          ease: "easeOut",
+          ease: [0, 0, 0.2, 1],
           delay: calc(5.4),
           opacity: { duration: 0.75, delay: calc(5.4) },
         }}
@@ -174,18 +179,23 @@ function AppleHelloVietnameseEffect({ className, speed = 1, onAnimationComplete,
         animate={animateProps}
         transition={{
           duration: calc(0.8),
-          ease: "easeInOut",
+          ease: [0.4, 0, 0.6, 1],
           delay: calc(7),
           opacity: { duration: 0.4, delay: calc(7) },
         }}
         onAnimationComplete={onAnimationComplete}
       />
     </motion.svg>
-  )
+  );
 }
 
-function AppleHelloEnglishEffect({ className, speed = 1, onAnimationComplete, ...props }: Props) {
-  const calc = (x: number) => x * speed
+function AppleHelloEnglishEffect({
+  className,
+  speed = 1,
+  onAnimationComplete,
+  ...props
+}: Props) {
+  const calc = (x: number) => x * speed;
 
   return (
     <motion.svg
@@ -210,7 +220,7 @@ function AppleHelloEnglishEffect({ className, speed = 1, onAnimationComplete, ..
         animate={animateProps}
         transition={{
           duration: calc(0.8),
-          ease: "easeInOut",
+          ease: [0.4, 0, 0.6, 1],
           opacity: { duration: 0.4 },
         }}
       />
@@ -223,14 +233,14 @@ function AppleHelloEnglishEffect({ className, speed = 1, onAnimationComplete, ..
         animate={animateProps}
         transition={{
           duration: calc(2.8),
-          ease: "easeInOut",
+          ease: [0.4, 0, 0.6, 1],
           delay: calc(0.7),
           opacity: { duration: 0.7, delay: calc(0.7) },
         }}
         onAnimationComplete={onAnimationComplete}
       />
     </motion.svg>
-  )
+  );
 }
 
-export { AppleHelloEnglishEffect, AppleHelloVietnameseEffect }
+export { AppleHelloEnglishEffect, AppleHelloVietnameseEffect };

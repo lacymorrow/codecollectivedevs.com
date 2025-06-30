@@ -33,7 +33,7 @@ const SectionWithMockup: React.FC<SectionWithMockupProps> = ({
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.7, ease: "easeOut" },
+      transition: { duration: 0.7, ease: [0.4, 0, 0.2, 1] },
     },
   };
 
@@ -94,7 +94,7 @@ const SectionWithMockup: React.FC<SectionWithMockupProps> = ({
               }}
               initial={{ y: reverseLayout ? 0 : 0 }}
               whileInView={{ y: reverseLayout ? -20 : -30 }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
+              transition={{ duration: 1.2, ease: [0.4, 0, 0.2, 1] }}
               viewport={{ once: true, amount: 0.5 }}
             >
               <div
@@ -110,7 +110,7 @@ const SectionWithMockup: React.FC<SectionWithMockupProps> = ({
               className="relative w-full h-[405px] md:h-[637px] bg-[#ffffff0a] rounded-[32px] backdrop-blur-[15px] backdrop-brightness-[100%] border-0 z-10 overflow-hidden"
               initial={{ y: reverseLayout ? 0 : 0 }}
               whileInView={{ y: reverseLayout ? 20 : 30 }}
-              transition={{ duration: 1.2, ease: "easeOut", delay: 0.1 }}
+              transition={{ duration: 1.2, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
               viewport={{ once: true, amount: 0.5 }}
             >
               <div className="p-0 h-full">

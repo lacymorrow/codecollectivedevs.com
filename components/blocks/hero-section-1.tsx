@@ -17,8 +17,9 @@ const transitionVariants = {
       filter: "blur(0px)",
       y: 0,
       transition: {
-        type: "spring",
-        bounce: 0.3,
+        type: "spring" as const,
+        stiffness: 100,
+        damping: 20,
         duration: 1.5,
       },
     },

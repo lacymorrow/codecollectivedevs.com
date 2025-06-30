@@ -34,6 +34,7 @@ import InteractiveCalendar from "@/components/visualize-booking";
 import { Gauge } from "@/components/ui/gauge";
 import { DotLoader } from "@/components/dot-loader";
 import { HeroSection } from "@/components/blocks/hero-section-1";
+import AppleActivityCard from "@/components/kokonutui/apple-activity-card";
 
 const enterpriseCards = [
   {
@@ -121,7 +122,7 @@ export default function LandingPage() {
         root: null, // viewport
         rootMargin: "0px",
         threshold: 0.5, // Trigger when 50% of the section is visible
-      },
+      }
     );
 
     if (transparencyRef.current) {
@@ -169,7 +170,10 @@ export default function LandingPage() {
                   <div className="flex overflow-hidden">
                     <div className="flex animate-marquee-left group-hover:pause whitespace-nowrap">
                       {Array.from({ length: 3 }).map((_, setIndex) => (
-                        <div key={setIndex} className="flex space-x-8 mr-8">
+                        <div
+                          key={`ai-tools-set-${setIndex}`}
+                          className="flex space-x-8 mr-8"
+                        >
                           {[
                             { name: "Claude AI", src: "/logos/claude.png" },
                             { name: "Gemini", src: "/logos/gemini.png" },
@@ -214,7 +218,10 @@ export default function LandingPage() {
                   <div className="flex overflow-hidden">
                     <div className="flex animate-marquee-right group-hover:pause whitespace-nowrap">
                       {Array.from({ length: 4 }).map((_, setIndex) => (
-                        <div key={setIndex} className="flex space-x-8 mr-8">
+                        <div
+                          key={`dev-tools-set-${setIndex}`}
+                          className="flex space-x-8 mr-8"
+                        >
                           {[
                             { name: "React", src: "/logos/react.png" },
                             { name: "Next.js", src: "/logos/nextjs.png" },
@@ -306,248 +313,104 @@ export default function LandingPage() {
           reverseLayout={false}
         />
 
-        {/* Performance Analytics Section */}
+        {/* Lighthouse Performance Section */}
         <section
-          id="page-speed"
+          id="lighthouse-performance"
           className="w-full py-20 md:py-32 bg-gradient-to-br from-zinc-50 to-zinc-100"
         >
           <div className="container mx-auto px-4 md:px-6">
-            <div className="mx-auto max-w-4xl text-center space-y-6 mb-20">
-              <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm border border-zinc-200 scroll-animate">
-                <BarChart className="h-4 w-4 text-violet-600" />
-                <span className="text-sm font-medium text-zinc-700">
-                  Performance Analytics
-                </span>
-              </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-900 scroll-animate">
-                We don't just build fast websites
-              </h2>
-              <p
-                className="text-xl text-zinc-600 leading-relaxed max-w-3xl mx-auto scroll-animate"
-                style={{ animationDelay: "0.1s" }}
-              >
-                We engineer performance from the ground up. Every line of code,
-                every asset, every interaction is optimized for lightning-fast
-                user experiences that convert.
-              </p>
-            </div>
-
-            {/* Main Performance Dashboard */}
-            <div className="max-w-6xl mx-auto mb-16">
-              <div
-                className="bg-white rounded-3xl shadow-xl border border-zinc-200 p-8 md:p-12 scroll-animate"
-                style={{ animationDelay: "0.2s" }}
-              >
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
-                  {/* Left: Main Performance Score */}
-                  <div className="text-center lg:text-left space-y-6">
-                    <div className="space-y-3">
-                      <h3 className="text-2xl font-bold text-zinc-900">
-                        Lighthouse Performance
-                      </h3>
-                      <p className="text-zinc-600 leading-relaxed">
-                        We consistently deliver websites that score 95+ on
-                        Google's Core Web Vitals, ensuring your site loads in
-                        under 1 second.
-                      </p>
-                    </div>
-                    <div className="flex items-center gap-4 justify-center lg:justify-start">
-                      <div className="bg-green-50 p-3 rounded-2xl">
-                        <Zap className="h-6 w-6 text-green-600" />
-                      </div>
-                      <div>
-                        <div className="text-sm font-medium text-zinc-500">
-                          Average Load Time
-                        </div>
-                        <div className="text-2xl font-bold text-zinc-900">
-                          0.8s
-                        </div>
-                      </div>
-                    </div>
+            <div className="grid gap-12 lg:grid-cols-2 items-center max-w-7xl mx-auto">
+              {/* Left: Content */}
+              <div className="space-y-8">
+                <div className="space-y-6">
+                  <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm border border-zinc-200 scroll-animate">
+                    <BarChart className="h-4 w-4 text-violet-600" />
+                    <span className="text-sm font-medium text-zinc-700">
+                      Lighthouse Performance
+                    </span>
                   </div>
-
-                  {/* Center: Large Performance Gauge */}
-                  <div className="flex justify-center">
-                    <div className="relative">
-                      <Gauge size={200} primary={"success"} value={96} />
-                    </div>
-                  </div>
-
-                  {/* Right: Key Metrics */}
-                  <div className="space-y-6">
-                    <div className="space-y-4">
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm font-medium text-zinc-700">
-                          First Contentful Paint
-                        </span>
-                        <span className="text-sm font-bold text-green-600">
-                          0.9s
-                        </span>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm font-medium text-zinc-700">
-                          Largest Contentful Paint
-                        </span>
-                        <span className="text-sm font-bold text-green-600">
-                          1.2s
-                        </span>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm font-medium text-zinc-700">
-                          Cumulative Layout Shift
-                        </span>
-                        <span className="text-sm font-bold text-green-600">
-                          0.05
-                        </span>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm font-medium text-zinc-700">
-                          Time to Interactive
-                        </span>
-                        <span className="text-sm font-bold text-green-600">
-                          1.8s
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="pt-4 border-t border-zinc-100">
-                      <div className="text-xs font-medium text-zinc-500 uppercase tracking-wide mb-2">
-                        Performance Grade
-                      </div>
-                      <div className="text-2xl font-bold text-green-600">
-                        A+
-                      </div>
-                    </div>
-                  </div>
+                  <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-zinc-900 scroll-animate">
+                    Performance that drives results
+                  </h2>
+                  <p
+                    className="text-xl text-zinc-600 leading-relaxed scroll-animate"
+                    style={{ animationDelay: "0.1s" }}
+                  >
+                    We don't just build websites—we engineer performance
+                    machines. Every site we deliver achieves 95+ Lighthouse
+                    scores across performance, SEO, and accessibility.
+                  </p>
                 </div>
-              </div>
-            </div>
 
-            {/* Secondary Metrics Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-16">
-              <div
-                className="bg-white rounded-2xl shadow-lg border border-zinc-200 p-6 text-center scroll-animate"
-                style={{ animationDelay: "0.3s" }}
-              >
-                <div className="flex justify-center mb-4">
-                  <Gauge size={120} primary={"info"} value={98} />
-                </div>
-                <h4 className="text-lg font-bold text-zinc-900 mb-2">
-                  Accessibility
-                </h4>
-                <p className="text-sm text-zinc-600 mb-3">
-                  WCAG 2.1 AA compliant with screen reader optimization
-                </p>
-                <div className="text-2xl font-bold text-blue-600">98/100</div>
-              </div>
-
-              <div
-                className="bg-white rounded-2xl shadow-lg border border-zinc-200 p-6 text-center scroll-animate"
-                style={{ animationDelay: "0.4s" }}
-              >
-                <div className="flex justify-center mb-4">
-                  <Gauge size={120} primary={"success"} value={94} />
-                </div>
-                <h4 className="text-lg font-bold text-zinc-900 mb-2">SEO</h4>
-                <p className="text-sm text-zinc-600 mb-3">
-                  Structured data, meta optimization, and crawlability
-                </p>
-                <div className="text-2xl font-bold text-green-600">94/100</div>
-              </div>
-
-              <div
-                className="bg-white rounded-2xl shadow-lg border border-zinc-200 p-6 text-center scroll-animate"
-                style={{ animationDelay: "0.5s" }}
-              >
-                <div className="flex justify-center mb-4">
-                  <Gauge size={120} primary={"warning"} value={92} />
-                </div>
-                <h4 className="text-lg font-bold text-zinc-900 mb-2">
-                  Best Practices
-                </h4>
-                <p className="text-sm text-zinc-600 mb-3">
-                  Security headers, HTTPS, and modern web standards
-                </p>
-                <div className="text-2xl font-bold text-orange-600">92/100</div>
-              </div>
-            </div>
-
-            {/* Bottom Section: What This Means */}
-            <div
-              className="max-w-4xl mx-auto text-center space-y-8 scroll-animate"
-              style={{ animationDelay: "0.6s" }}
-            >
-              <h3 className="text-3xl font-bold text-zinc-900">
-                What these numbers mean for your business
-              </h3>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-                <div className="bg-white rounded-xl p-6 shadow-sm border border-zinc-200">
-                  <div className="flex items-start gap-4">
-                    <div className="bg-green-100 p-2 rounded-lg flex-shrink-0">
-                      <TrendingUp className="h-5 w-5 text-green-600" />
+                {/* Key Benefits */}
+                <div className="space-y-6">
+                  <div
+                    className="flex gap-4 scroll-animate"
+                    style={{ animationDelay: "0.2s" }}
+                  >
+                    <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Zap className="h-5 w-5 text-green-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-zinc-900 mb-2">
-                        Higher Conversion Rates
-                      </h4>
-                      <p className="text-sm text-zinc-600">
-                        Fast websites convert 2.5x better. Every 100ms
-                        improvement increases conversions by 8%.
+                      <h3 className="font-semibold text-zinc-900 text-lg mb-2">
+                        Sub-Second Load Times
+                      </h3>
+                      <p className="text-zinc-600">
+                        Consistently deliver &lt;1s load times that boost
+                        conversions by 15% and reduce bounce rates by 32%.
                       </p>
                     </div>
                   </div>
-                </div>
 
-                <div className="bg-white rounded-xl p-6 shadow-sm border border-zinc-200">
-                  <div className="flex items-start gap-4">
-                    <div className="bg-blue-100 p-2 rounded-lg flex-shrink-0">
+                  <div
+                    className="flex gap-4 scroll-animate"
+                    style={{ animationDelay: "0.3s" }}
+                  >
+                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Search className="h-5 w-5 text-blue-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-zinc-900 mb-2">
-                        Better Search Rankings
-                      </h4>
-                      <p className="text-sm text-zinc-600">
-                        Google uses Core Web Vitals as a ranking factor. Fast
-                        sites rank higher and get more traffic.
+                      <h3 className="font-semibold text-zinc-900 text-lg mb-2">
+                        SEO Optimization
+                      </h3>
+                      <p className="text-zinc-600">
+                        Perfect Core Web Vitals, structured data, and technical
+                        SEO that ranks your site higher in search results.
                       </p>
                     </div>
                   </div>
-                </div>
 
-                <div className="bg-white rounded-xl p-6 shadow-sm border border-zinc-200">
-                  <div className="flex items-start gap-4">
-                    <div className="bg-purple-100 p-2 rounded-lg flex-shrink-0">
+                  <div
+                    className="flex gap-4 scroll-animate"
+                    style={{ animationDelay: "0.4s" }}
+                  >
+                    <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Users className="h-5 w-5 text-purple-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-zinc-900 mb-2">
-                        Improved User Experience
-                      </h4>
-                      <p className="text-sm text-zinc-600">
-                        Users expect pages to load in under 2 seconds. We
-                        consistently deliver sub-second experiences.
+                      <h3 className="font-semibold text-zinc-900 text-lg mb-2">
+                        Accessibility First
+                      </h3>
+                      <p className="text-zinc-600">
+                        WCAG 2.1 AA compliance ensures your site is usable by
+                        everyone, expanding your reach and improving user
+                        satisfaction.
                       </p>
                     </div>
                   </div>
                 </div>
+              </div>
 
-                <div className="bg-white rounded-xl p-6 shadow-sm border border-zinc-200">
-                  <div className="flex items-start gap-4">
-                    <div className="bg-orange-100 p-2 rounded-lg flex-shrink-0">
-                      <Shield className="h-5 w-5 text-orange-600" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-zinc-900 mb-2">
-                        Enterprise Security
-                      </h4>
-                      <p className="text-sm text-zinc-600">
-                        Modern security headers, CSP policies, and best
-                        practices protect your users and data.
-                      </p>
-                    </div>
-                  </div>
+              {/* Right: Apple Activity Card */}
+              <div className="flex justify-center lg:justify-end">
+                <div
+                  className="bg-white rounded-3xl shadow-xl border border-zinc-200 scroll-animate max-w-lg w-full"
+                  style={{ animationDelay: "0.2s" }}
+                >
+                  <AppleActivityCard
+                    title="Lighthouse Scores"
+                    className="bg-transparent"
+                  />
                 </div>
               </div>
             </div>
