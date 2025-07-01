@@ -35,6 +35,7 @@ import { Gauge } from "@/components/ui/gauge";
 import { DotLoader } from "@/components/dot-loader";
 import { HeroSection } from "@/components/blocks/hero-section-1";
 import AppleActivityCard from "@/components/kokonutui/apple-activity-card";
+import CaseStudies from "@/components/blocks/case-studies";
 
 const enterpriseCards = [
   {
@@ -566,81 +567,7 @@ export default function LandingPage() {
         </section>
 
         {/* Case Studies Section */}
-        <section id="case-studies" className="w-full py-20 md:py-32">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="mx-auto max-w-3xl text-center space-y-4 mb-16">
-              <h2 className="text-3xl font-bold tracking-tight text-zinc-900 md:text-4xl scroll-animate">
-                Trusted by industry leaders
-              </h2>
-              <p
-                className="text-xl text-zinc-600 scroll-animate"
-                style={{ animationDelay: "0.1s" }}
-              >
-                See how we've helped companies scale their digital
-                infrastructure and drive growth.
-              </p>
-            </div>
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
-              <Link href="/case-studies/techflow">
-                <Card className="border-0 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group scroll-animate">
-                  <div className="aspect-video bg-gradient-to-br from-blue-50 to-blue-100 rounded-t-lg"></div>
-                  <CardHeader>
-                    <CardTitle className="text-lg">
-                      Twilio Integration Platform
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-zinc-600 text-sm leading-relaxed mb-4">
-                      Built a comprehensive communication platform handling 1M+
-                      messages daily with real-time analytics and
-                      enterprise-grade reliability.
-                    </p>
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href="/case-studies/artisan">
-                <Card
-                  className="border-0 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group scroll-animate"
-                  style={{ animationDelay: "0.1s" }}
-                >
-                  <div className="aspect-video bg-gradient-to-br from-green-50 to-green-100 rounded-t-lg"></div>
-                  <CardHeader>
-                    <CardTitle className="text-lg">
-                      Swell E-commerce Platform
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-zinc-600 text-sm leading-relaxed mb-4">
-                      Headless commerce solution processing $2M+ in transactions
-                      monthly with advanced inventory management and
-                      multi-channel support.
-                    </p>
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href="/case-studies/datasync">
-                <Card
-                  className="border-0 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group scroll-animate"
-                  style={{ animationDelay: "0.2s" }}
-                >
-                  <div className="aspect-video bg-gradient-to-br from-purple-50 to-purple-100 rounded-t-lg"></div>
-                  <CardHeader>
-                    <CardTitle className="text-lg">
-                      Analytics Dashboard
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-zinc-600 text-sm leading-relaxed mb-4">
-                      Real-time data visualization platform processing 100GB+
-                      daily with advanced machine learning insights and
-                      predictive analytics.
-                    </p>
-                  </CardContent>
-                </Card>
-              </Link>
-            </div>
-          </div>
-        </section>
+        <CaseStudies />
 
         {/* Pricing Section */}
         <section id="pricing" className="w-full py-20 md:py-32 bg-zinc-50">
