@@ -59,14 +59,14 @@ export default function LandingPage() {
     <div className="flex min-h-screen flex-col bg-white">
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative w-full pt-10 pb-16 md:pt-20 md:pb-24 overflow-hidden">
+        <section className="relative w-full pt-10 pb-16 md:pt-20 md:pb-24 overflow-hidden bg-white">
           <HeroSection />
         </section>
 
         {/* Lighthouse Performance Section */}
         <section
           id="lighthouse-performance"
-          className="w-full py-20 md:py-32 bg-gradient-to-br from-zinc-50 to-zinc-100"
+          className="w-full py-20 md:py-32 bg-zinc-50"
         >
           <div className="container mx-auto px-4 md:px-6">
             <div className="grid gap-12 items-center max-w-7xl mx-auto">
@@ -155,7 +155,7 @@ export default function LandingPage() {
         </section>
 
         {/* Enterprise Section */}
-        <section id="enterprise" className="w-full py-20 md:py-32 bg-zinc-50">
+        <section id="enterprise" className="w-full py-20 md:py-32 bg-white">
           <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-3xl mx-auto">
               <div className="space-y-8 text-center">
@@ -231,10 +231,12 @@ export default function LandingPage() {
         </section>
 
         {/* Case Studies Section */}
-        <CaseStudies />
+        <section className="w-full py-20 md:py-32 bg-zinc-50">
+          <CaseStudies />
+        </section>
 
         {/* Pricing Section */}
-        <section id="pricing" className="w-full py-20 md:py-32 bg-zinc-50">
+        <section id="pricing" className="w-full py-20 md:py-32 bg-white">
           <div className="container mx-auto px-4 md:px-6">
             <div className="mx-auto max-w-3xl text-center space-y-4 mb-16">
               <h2 className="text-3xl font-bold tracking-tight text-zinc-900 md:text-4xl scroll-animate">
@@ -315,7 +317,7 @@ export default function LandingPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="w-full py-20 md:py-32">
+        <section className="w-full py-20 md:py-32 bg-zinc-50">
           <div className="container mx-auto px-4 md:px-6">
             <div className="mx-auto max-w-3xl text-center space-y-8">
               <div className="space-y-4">
