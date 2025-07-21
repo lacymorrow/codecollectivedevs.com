@@ -111,7 +111,7 @@ export function HeroSection() {
                     </div>
                   </Link>
 
-                  <h1 className="mt-8 max-w-4xl mx-auto text-balance text-6xl md:text-7xl lg:mt-16 xl:text-[5.25rem]">
+                  <h1 className="mt-8 max-w-4xl mx-auto text-balance text-[2.5rem] leading-tight md:text-[3.25rem] lg:mt-16 xl:text-[4.125rem]">
                     Modern Solutions for Customer Engagement
                   </h1>
                   <p className="mx-auto mt-8 max-w-2xl text-balance text-lg">
