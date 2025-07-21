@@ -16,14 +16,14 @@ export function ScheduleCallModal({ trigger }: { trigger: React.ReactNode }) {
   return (
     <Dialog>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogContent className="max-w-2xl">
+      <DialogContent className="max-w-4xl">
         <DialogHeader>
           <DialogTitle>Schedule a Call</DialogTitle>
         </DialogHeader>
-        <div className="w-full h-[600px]">
+        <div className="w-full min-h-[600px]">
           <CalEmbed
             calLink="lacymorrow/code-collective"
-            style={{ width: '100%', height: '100%', minHeight: 500, border: 0 }}
+            className="w-full h-full"
             config={{ layout: 'month_view' }}
           />
         </div>

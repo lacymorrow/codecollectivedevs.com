@@ -9,10 +9,10 @@ import { GetStartedModal } from '@/components/GetStartedModal';
 import { ScheduleCallModal } from '@/components/ScheduleCallModal';
 
 const menuItems = [
-  { name: 'Features', href: '#link' },
-  { name: 'Solution', href: '#link' },
-  { name: 'Pricing', href: '#link' },
-  { name: 'About', href: '#link' },
+  { name: 'Features', href: '#lighthouse-performance' },
+  { name: 'Solution', href: '#solutions' },
+  { name: 'Pricing', href: '#pricing' },
+  { name: 'About', href: '#enterprise' },
 ];
 
 export const HeroHeader = () => {
