@@ -17,7 +17,6 @@ import {
   Search,
   BarChart,
 } from 'lucide-react';
-import SectionWithMockup from '@/components/section-with-mockup';
 import { HeroSection } from '@/components/blocks/hero-section-1';
 import CaseStudies from '@/components/blocks/case-studies';
 import { GetStartedModal } from '@/components/GetStartedModal';
@@ -55,31 +54,6 @@ const enterpriseCards = [
   },
 ];
 
-const exampleData1 = {
-  title: (
-    <>
-      Intelligence,
-      <br />
-      delivered to you.
-    </>
-  ),
-  description: (
-    <>
-      Get a tailored Monday morning brief directly in
-      <br />
-      your inbox, crafted by your virtual personal
-      <br />
-      analyst, spotlighting essential watchlist stories
-      <br />
-      and earnings for the week ahead.
-    </>
-  ),
-  primaryImageSrc:
-    'https://www.fey.com/marketing/_next/static/media/newsletter-desktop-2_4x.e594b737.png',
-  secondaryImageSrc:
-    'https://www.fey.com/marketing/_next/static/media/newsletter-desktop-1_4x.9cc114e6.png',
-};
-
 export default function LandingPage() {
   return (
     <div className="flex min-h-screen flex-col bg-white">
@@ -89,24 +63,15 @@ export default function LandingPage() {
           <HeroSection />
         </section>
 
-        {/* Build with AI Section */}
-        <SectionWithMockup
-          title={exampleData1.title}
-          description={exampleData1.description}
-          primaryImageSrc={exampleData1.primaryImageSrc}
-          secondaryImageSrc={exampleData1.secondaryImageSrc}
-          reverseLayout={false}
-        />
-
         {/* Lighthouse Performance Section */}
         <section
           id="lighthouse-performance"
           className="w-full py-20 md:py-32 bg-gradient-to-br from-zinc-50 to-zinc-100"
         >
           <div className="container mx-auto px-4 md:px-6">
-            <div className="grid gap-12 lg:grid-cols-2 items-center max-w-7xl mx-auto">
+            <div className="grid gap-12 items-center max-w-7xl mx-auto">
               {/* Left: Content */}
-              <div className="space-y-8">
+              <div className="space-y-8 text-center items-center">
                 <div className="space-y-6">
                   <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm border border-zinc-200 scroll-animate">
                     <BarChart className="h-4 w-4 text-violet-600" />
@@ -128,8 +93,11 @@ export default function LandingPage() {
                 </div>
 
                 {/* Key Benefits */}
-                <div className="space-y-6">
-                  <div className="flex gap-4 scroll-animate" style={{ animationDelay: '0.2s' }}>
+                <div className="space-y-6 mx-auto">
+                  <div
+                    className="flex flex-col items-center text-center gap-4 scroll-animate"
+                    style={{ animationDelay: '0.2s' }}
+                  >
                     <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Zap className="h-5 w-5 text-green-600" />
                     </div>
@@ -144,7 +112,10 @@ export default function LandingPage() {
                     </div>
                   </div>
 
-                  <div className="flex gap-4 scroll-animate" style={{ animationDelay: '0.3s' }}>
+                  <div
+                    className="flex flex-col items-center text-center gap-4 scroll-animate"
+                    style={{ animationDelay: '0.3s' }}
+                  >
                     <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Search className="h-5 w-5 text-blue-600" />
                     </div>
@@ -157,7 +128,10 @@ export default function LandingPage() {
                     </div>
                   </div>
 
-                  <div className="flex gap-4 scroll-animate" style={{ animationDelay: '0.4s' }}>
+                  <div
+                    className="flex flex-col items-center text-center gap-4 scroll-animate"
+                    style={{ animationDelay: '0.4s' }}
+                  >
                     <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Users className="h-5 w-5 text-purple-600" />
                     </div>
@@ -176,29 +150,6 @@ export default function LandingPage() {
 
               {/* Right: Apple Activity Card */}
               {/* Apple Activity Card intentionally removed after cleanup */}
-            </div>
-          </div>
-        </section>
-
-        {/* Solutions Section */}
-        <section id="solutions" className="w-full py-20 md:py-32">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="mx-auto max-w-6xl text-center">
-              <div className="space-y-4 mb-16">
-                <h2 className="text-3xl font-bold tracking-tight text-zinc-900 md:text-4xl scroll-animate">
-                  Built for modern enterprises
-                </h2>
-                <p
-                  className="text-xl text-zinc-600 scroll-animate"
-                  style={{ animationDelay: '0.1s' }}
-                >
-                  From API integrations to full-stack platforms, we deliver solutions that power
-                  business growth.
-                </p>
-              </div>
-              <div className="flex justify-center">
-                {/* DisplayCards intentionally removed after cleanup */}
-              </div>
             </div>
           </div>
         </section>
