@@ -1,12 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import {
-  AnimatePresence,
-  motion,
-  TargetAndTransition,
-  Variants,
-} from 'framer-motion';
+import { AnimatePresence, motion, TargetAndTransition, Variants } from 'framer-motion';
 import React from 'react';
 
 type PresetType = 'blur' | 'shake' | 'scale' | 'fade' | 'slide';
@@ -54,10 +49,7 @@ const defaultItemVariants: Variants = {
   exit: { opacity: 0 },
 };
 
-const presetVariants: Record<
-  PresetType,
-  { container: Variants; item: Variants }
-> = {
+const presetVariants: Record<PresetType, { container: Variants; item: Variants }> = {
   blur: {
     container: defaultContainerVariants,
     item: {
@@ -108,25 +100,21 @@ const AnimationComponent: React.FC<{
 }> = React.memo(({ segment, variants, per, segmentWrapperClassName }) => {
   const content =
     per === 'line' ? (
-      <motion.span variants={variants} className='block'>
+      <motion.span variants={variants} className="block">
         {segment}
       </motion.span>
     ) : per === 'word' ? (
-      <motion.span
-        aria-hidden='true'
-        variants={variants}
-        className='inline-block whitespace-pre'
-      >
+      <motion.span aria-hidden="true" variants={variants} className="inline-block whitespace-pre">
         {segment}
       </motion.span>
     ) : (
-      <motion.span className='inline-block whitespace-pre'>
+      <motion.span className="inline-block whitespace-pre">
         {segment.split('').map((char, charIndex) => (
           <motion.span
             key={`char-${charIndex}`}
-            aria-hidden='true'
+            aria-hidden="true"
             variants={variants}
-            className='inline-block whitespace-pre'
+            className="inline-block whitespace-pre"
           >
             {char}
           </motion.span>
@@ -140,11 +128,7 @@ const AnimationComponent: React.FC<{
 
   const defaultWrapperClassName = per === 'line' ? 'block' : 'inline-block';
 
-  return (
-    <span className={cn(defaultWrapperClassName, segmentWrapperClassName)}>
-      {content}
-    </span>
-  );
+  return <span className={cn(defaultWrapperClassName, segmentWrapperClassName)}>{content}</span>;
 });
 
 AnimationComponent.displayName = 'AnimationComponent';
@@ -188,8 +172,8 @@ export function TextEffect({
       transition: {
         ...(containerVariants.visible as TargetAndTransition)?.transition,
         staggerChildren:
-          (containerVariants.visible as TargetAndTransition)?.transition
-            ?.staggerChildren || stagger,
+          (containerVariants.visible as TargetAndTransition)?.transition?.staggerChildren ||
+          stagger,
         delayChildren: delay,
       },
     },
@@ -197,12 +181,12 @@ export function TextEffect({
   };
 
   return (
-    <AnimatePresence mode='popLayout'>
+    <AnimatePresence mode="popLayout">
       {trigger && (
         <MotionTag
-          initial='hidden'
-          animate='visible'
-          exit='exit'
+          initial="hidden"
+          animate="visible"
+          exit="exit"
           aria-label={ariaLabel}
           variants={delayedContainerVariants}
           className={cn('whitespace-pre-wrap', className)}

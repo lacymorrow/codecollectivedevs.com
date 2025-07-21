@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 interface AnimatedBackgroundProps {
   className?: string;
   opacity?: number;
@@ -8,7 +8,7 @@ interface AnimatedBackgroundProps {
 }
 
 export function AnimatedBackground({
-  className = "",
+  className = '',
   opacity = 0.6,
   overlayOpacity = 0.5,
   children,

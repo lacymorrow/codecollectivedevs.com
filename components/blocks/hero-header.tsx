@@ -1,16 +1,18 @@
-"use client";
+'use client';
 
-import React from "react";
-import { cn } from "@/lib/utils";
-import { Button, buttonVariants } from "@/components/ui/button";
-import Link from "next/link";
-import { AtomIcon, Menu, X } from "lucide-react";
+import React from 'react';
+import { cn } from '@/lib/utils';
+import { Button, buttonVariants } from '@/components/ui/button';
+import Link from 'next/link';
+import { AtomIcon, Menu, X } from 'lucide-react';
+import { GetStartedModal } from '@/components/GetStartedModal';
+import { ScheduleCallModal } from '@/components/ScheduleCallModal';
 
 const menuItems = [
-  { name: "Features", href: "#link" },
-  { name: "Solution", href: "#link" },
-  { name: "Pricing", href: "#link" },
-  { name: "About", href: "#link" },
+  { name: 'Features', href: '#link' },
+  { name: 'Solution', href: '#link' },
+  { name: 'Pricing', href: '#link' },
+  { name: 'About', href: '#link' },
 ];
 
 export const HeroHeader = () => {
@@ -21,35 +23,27 @@ export const HeroHeader = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   return (
     <header>
-      <nav
-        data-state={menuState && "active"}
-        className="fixed z-20 w-full px-2 group"
-      >
+      <nav data-state={menuState && 'active'} className="fixed z-20 w-full px-2 group">
         <div
           className={cn(
-            "mx-auto mt-2 max-w-6xl px-6 transition-all duration-300 lg:px-12",
-            isScrolled &&
-              "bg-background/50 max-w-4xl rounded-2xl border backdrop-blur-lg lg:px-5"
+            'mx-auto mt-2 max-w-6xl px-6 transition-all duration-300 lg:px-12',
+            isScrolled && 'bg-background/50 max-w-4xl rounded-2xl border backdrop-blur-lg lg:px-5',
           )}
         >
           <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
             <div className="flex w-full justify-between lg:w-auto">
-              <Link
-                href="/"
-                aria-label="home"
-                className="flex items-center space-x-3"
-              >
+              <Link href="/" aria-label="home" className="flex items-center space-x-3">
                 <AtomIcon /> Code Collective
               </Link>
 
               <button
                 onClick={() => setMenuState(!menuState)}
-                aria-label={menuState == true ? "Close Menu" : "Open Menu"}
+                aria-label={menuState == true ? 'Close Menu' : 'Open Menu'}
                 className="relative z-20 -m-2.5 -mr-4 block cursor-pointer p-2.5 lg:hidden"
               >
                 <Menu className="in-data-[state=active]:rotate-180 group-data-[state=active]:scale-0 group-data-[state=active]:opacity-0 m-auto size-6 duration-200" />
@@ -88,29 +82,32 @@ export const HeroHeader = () => {
                 </ul>
               </div>
               <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
-                <Link
-                  href="#"
-                  className={cn(
-                    buttonVariants({ variant: "link", size: "sm" }),
-                    isScrolled && "lg:hidden"
-                  )}
-                >
-                  <span>Contact Sales</span>
-                </Link>
-                <Button size="sm" className={cn(isScrolled && "lg:hidden")}>
+                <ScheduleCallModal
+                  trigger={
+                    <Button variant="link" size="sm" className={cn(isScrolled && 'lg:hidden')}>
+                      Contact Sales
+                    </Button>
+                  }
+                />
+                <Button size="sm" className={cn(isScrolled && 'lg:hidden')}>
                   <Link href="#">
                     <span>Sign Up</span>
                   </Link>
                 </Button>
-                <Button
-                  asChild
-                  size="sm"
-                  className={cn(isScrolled ? "lg:inline-flex" : "hidden")}
-                >
-                  <Link href="#">
-                    <span>Get Started</span>
-                  </Link>
-                </Button>
+                <GetStartedModal
+                  trigger={
+                    <Button
+                      asChild
+                      size="sm"
+                      className={cn(isScrolled ? 'lg:inline-flex' : 'hidden')}
+                    >
+                      {' '}
+                      <Link href="#">
+                        <span>Get Started</span>
+                      </Link>{' '}
+                    </Button>
+                  }
+                />
               </div>
             </div>
           </div>

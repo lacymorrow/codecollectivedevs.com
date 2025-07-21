@@ -1,23 +1,25 @@
-import React from "react";
-import Link from "next/link";
-import { ArrowRight, AtomIcon, ChevronRight, Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { AnimatedGroup } from "@/components/ui/animated-group";
-import { cn } from "@/lib/utils";
+import React from 'react';
+import Link from 'next/link';
+import { ArrowRight, AtomIcon, ChevronRight, Menu, X } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { AnimatedGroup } from '@/components/ui/animated-group';
+import { cn } from '@/lib/utils';
+import { GetStartedModal } from '@/components/GetStartedModal';
+import { ScheduleCallModal } from '@/components/ScheduleCallModal';
 
 const transitionVariants = {
   item: {
     hidden: {
       opacity: 0,
-      filter: "blur(12px)",
+      filter: 'blur(12px)',
       y: 12,
     },
     visible: {
       opacity: 1,
-      filter: "blur(0px)",
+      filter: 'blur(0px)',
       y: 0,
       transition: {
-        type: "spring" as const,
+        type: 'spring' as const,
         stiffness: 100,
         damping: 20,
         duration: 1.5,
@@ -58,7 +60,7 @@ export function HeroSection() {
                     opacity: 1,
                     y: 0,
                     transition: {
-                      type: "spring",
+                      type: 'spring',
                       bounce: 0.3,
                       duration: 2,
                     },
@@ -86,7 +88,13 @@ export function HeroSection() {
                     href="#link"
                     className="hover:bg-background dark:hover:border-t-border bg-muted group mx-auto flex w-fit items-center gap-4 rounded-full border p-1 pl-4 shadow-md shadow-black/5 transition-all duration-300 dark:border-t-white/5 dark:shadow-zinc-950"
                   >
-                    <span className="text-foreground text-sm">
+                    <span
+                      className="text-foreground text-sm cursor-pointer underline hover:text-primary"
+                      onClick={() => {
+                        const el = document.getElementById('pricing');
+                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                    >
                       Introducing Support for AI Models
                     </span>
                     <span className="dark:border-background block h-4 w-0.5 border-l bg-white dark:bg-zinc-700"></span>
@@ -107,8 +115,8 @@ export function HeroSection() {
                     Modern Solutions for Customer Engagement
                   </h1>
                   <p className="mx-auto mt-8 max-w-2xl text-balance text-lg">
-                    Highly customizable components for building modern websites
-                    and applications that look and feel the way you mean it.
+                    We are a team of developers who are passionate about creating modern solutions
+                    for customer engagement.
                   </p>
                 </AnimatedGroup>
 
@@ -126,31 +134,22 @@ export function HeroSection() {
                   }}
                   className="mt-12 flex flex-col items-center justify-center gap-2 md:flex-row"
                 >
-                  <div
-                    key={1}
-                    className="bg-foreground/10 rounded-[14px] border p-0.5"
-                  >
-                    <Button
-                      asChild
-                      size="lg"
-                      className="rounded-xl px-5 text-base"
-                    >
-                      <Link href="#link">
-                        <span className="text-nowrap">Start Building</span>
-                      </Link>
+                  <div key={1} className="bg-foreground/10 rounded-[14px] border p-0.5">
+                    <GetStartedModal
+                      trigger={
+                        <Button size="lg" className="rounded-xl px-5 text-base">
+                          Start Building
                     </Button>
+                      }
+                    />
                   </div>
-                  <Button
-                    key={2}
-                    asChild
-                    size="lg"
-                    variant="ghost"
-                    className="h-10.5 rounded-xl px-5"
-                  >
-                    <Link href="#link">
-                      <span className="text-nowrap">Request a demo</span>
-                    </Link>
+                  <ScheduleCallModal
+                    trigger={
+                      <Button key={2} size="lg" variant="ghost" className="h-10.5 rounded-xl px-5">
+                        Request a demo
                   </Button>
+                    }
+                  />
                 </AnimatedGroup>
               </div>
             </div>
@@ -169,10 +168,6 @@ export function HeroSection() {
               }}
             >
               <div className="relative -mr-56 mt-8 overflow-hidden px-2 sm:mr-0 sm:mt-12 md:mt-20">
-                <div
-                  aria-hidden
-                  className="bg-gradient-to-b to-background absolute inset-0 z-10 from-transparent from-35%"
-                />
                 <div className="inset-shadow-2xs ring-background dark:inset-shadow-white/20 bg-background relative mx-auto max-w-6xl overflow-hidden rounded-2xl border p-4 shadow-lg shadow-zinc-950/15 ring-1">
                   <img
                     className="bg-background aspect-15/8 relative hidden rounded-2xl dark:block"
@@ -193,6 +188,7 @@ export function HeroSection() {
             </AnimatedGroup>
           </div>
         </section>
+        {/*
         <section className="bg-background pb-16 pt-16 md:pb-32">
           <div className="group relative m-auto max-w-5xl px-6">
             <div className="absolute inset-0 z-10 flex scale-95 items-center justify-center opacity-0 duration-500 group-hover:scale-100 group-hover:opacity-100">
@@ -283,6 +279,7 @@ export function HeroSection() {
             </div>
           </div>
         </section>
+        */}
       </main>
     </>
   );

@@ -1,8 +1,8 @@
 // components/SectionWithMockup.tsx
-"use client";
+'use client';
 
-import React from "react";
-import { motion } from "framer-motion";
+import React from 'react';
+import { motion } from 'framer-motion';
 
 interface SectionWithMockupProps {
   title: string | React.ReactNode;
@@ -37,12 +37,10 @@ const SectionWithMockup: React.FC<SectionWithMockupProps> = ({
     },
   };
 
-  const layoutClasses = reverseLayout
-    ? "md:grid-cols-2 md:grid-flow-col-dense"
-    : "md:grid-cols-2";
+  const layoutClasses = reverseLayout ? 'md:grid-cols-2 md:grid-flow-col-dense' : 'md:grid-cols-2';
 
-  const textOrderClass = reverseLayout ? "md:col-start-2" : "";
-  const imageOrderClass = reverseLayout ? "md:col-start-1" : "";
+  const textOrderClass = reverseLayout ? 'md:col-start-2' : '';
+  const imageOrderClass = reverseLayout ? 'md:col-start-1' : '';
 
   return (
     <section className="relative py-24 md:py-48 bg-black overflow-hidden">
@@ -83,14 +81,12 @@ const SectionWithMockup: React.FC<SectionWithMockupProps> = ({
             <motion.div
               className={`absolute w-[300px] h-[317px] md:w-[472px] md:h-[500px] bg-[#090909] rounded-[32px] z-0`}
               style={{
-                top: reverseLayout ? "auto" : "10%",
-                bottom: reverseLayout ? "10%" : "auto",
-                left: reverseLayout ? "auto" : "-20%",
-                right: reverseLayout ? "-20%" : "auto",
-                transform: reverseLayout
-                  ? "translate(0, 0)"
-                  : "translateY(10%)",
-                filter: "blur(2px)",
+                top: reverseLayout ? 'auto' : '10%',
+                bottom: reverseLayout ? '10%' : 'auto',
+                left: reverseLayout ? 'auto' : '-20%',
+                right: reverseLayout ? '-20%' : 'auto',
+                transform: reverseLayout ? 'translate(0, 0)' : 'translateY(10%)',
+                filter: 'blur(2px)',
               }}
               initial={{ y: reverseLayout ? 0 : 0 }}
               whileInView={{ y: reverseLayout ? -20 : -30 }}
@@ -117,7 +113,7 @@ const SectionWithMockup: React.FC<SectionWithMockupProps> = ({
                 <div
                   className="h-full relative"
                   style={{
-                    backgroundSize: "100% 100%",
+                    backgroundSize: '100% 100%',
                   }}
                 >
                   {/* Primary Image */}
@@ -139,7 +135,7 @@ const SectionWithMockup: React.FC<SectionWithMockupProps> = ({
         className="absolute w-full h-px bottom-0 left-0 z-0"
         style={{
           background:
-            "radial-gradient(50% 50% at 50% 50%, rgba(255,255,255,0.24) 0%, rgba(255,255,255,0) 100%)",
+            'radial-gradient(50% 50% at 50% 50%, rgba(255,255,255,0.24) 0%, rgba(255,255,255,0) 100%)',
         }}
       />
     </section>

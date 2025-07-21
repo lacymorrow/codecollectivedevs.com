@@ -1,10 +1,11 @@
-"use client"
+'use client';
 
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import Image from 'next/image';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { GetStartedModal } from '@/components/GetStartedModal';
 
 export default function DataSyncCaseStudy() {
   return (
@@ -20,7 +21,9 @@ export default function DataSyncCaseStudy() {
               height={32}
               className="rounded-lg"
             />
-            <span className="text-xl font-semibold tracking-tight text-zinc-900">Code Collective</span>
+            <span className="text-xl font-semibold tracking-tight text-zinc-900">
+              Code Collective
+            </span>
           </Link>
           <nav className="hidden md:flex items-center gap-8">
             <Link
@@ -35,13 +38,20 @@ export default function DataSyncCaseStudy() {
             >
               Case Studies
             </Link>
-            <Link href="/#pricing" className="text-sm font-medium text-zinc-700 hover:text-zinc-900 transition-colors">
+            <Link
+              href="/#pricing"
+              className="text-sm font-medium text-zinc-700 hover:text-zinc-900 transition-colors"
+            >
               Pricing
             </Link>
           </nav>
-          <Button size="sm" className="bg-zinc-900 hover:bg-zinc-800 text-white">
-            Get Started
-          </Button>
+          <GetStartedModal
+            trigger={
+              <Button size="sm" className="bg-zinc-900 hover:bg-zinc-800 text-white">
+                Get Started
+              </Button>
+            }
+          />
         </div>
       </header>
 
@@ -74,13 +84,15 @@ export default function DataSyncCaseStudy() {
                       <span className="text-white font-bold text-lg">D</span>
                     </div>
                     <div>
-                      <h1 className="text-3xl font-bold tracking-tight text-zinc-900 md:text-4xl">DataSync Corp</h1>
+                      <h1 className="text-3xl font-bold tracking-tight text-zinc-900 md:text-4xl">
+                        DataSync Corp
+                      </h1>
                       <p className="text-zinc-600">Real-time Analytics Dashboard</p>
                     </div>
                   </div>
                   <p className="text-xl text-zinc-600 leading-relaxed">
-                    How we built an enterprise analytics platform that processes 100GB+ of data daily, delivering
-                    real-time insights 10x faster than their previous solution.
+                    How we built an enterprise analytics platform that processes 100GB+ of data
+                    daily, delivering real-time insights 10x faster than their previous solution.
                   </p>
                 </div>
 
@@ -134,13 +146,16 @@ export default function DataSyncCaseStudy() {
                 <h2 className="text-2xl font-bold tracking-tight text-zinc-900">The Challenge</h2>
                 <div className="space-y-4 text-zinc-600 leading-relaxed">
                   <p>
-                    DataSync Corp was struggling with their legacy reporting system that couldn't keep up with their
-                    growing data needs. The existing solution had critical limitations:
+                    DataSync Corp was struggling with their legacy reporting system that couldn't
+                    keep up with their growing data needs. The existing solution had critical
+                    limitations:
                   </p>
                   <ul className="space-y-2 ml-4">
                     <li className="flex items-start gap-2">
                       <div className="w-1.5 h-1.5 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <span>Reports took 2-3 hours to generate, making real-time decisions impossible</span>
+                      <span>
+                        Reports took 2-3 hours to generate, making real-time decisions impossible
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <div className="w-1.5 h-1.5 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
@@ -162,8 +177,8 @@ export default function DataSyncCaseStudy() {
                 <h2 className="text-2xl font-bold tracking-tight text-zinc-900">Our Solution</h2>
                 <div className="space-y-4 text-zinc-600 leading-relaxed">
                   <p>
-                    We built a modern, real-time analytics platform with advanced visualization capabilities and machine
-                    learning integration:
+                    We built a modern, real-time analytics platform with advanced visualization
+                    capabilities and machine learning integration:
                   </p>
                   <ul className="space-y-2 ml-4">
                     <li className="flex items-start gap-2">
@@ -194,10 +209,12 @@ export default function DataSyncCaseStudy() {
           <div className="container px-4 md:px-6">
             <div className="space-y-12">
               <div className="text-center space-y-4">
-                <h2 className="text-2xl font-bold tracking-tight text-zinc-900">Transformational Results</h2>
+                <h2 className="text-2xl font-bold tracking-tight text-zinc-900">
+                  Transformational Results
+                </h2>
                 <p className="text-zinc-600 max-w-2xl mx-auto">
-                  The new analytics platform delivered immediate improvements in decision-making speed and data
-                  insights.
+                  The new analytics platform delivered immediate improvements in decision-making
+                  speed and data insights.
                 </p>
               </div>
 
@@ -235,12 +252,18 @@ export default function DataSyncCaseStudy() {
                 <div className="space-y-6">
                   <div className="text-center">
                     <div className="text-2xl font-bold text-zinc-900 mb-4">
-                      "This platform has revolutionized how we make data-driven decisions. What used to take hours now
-                      happens in real-time."
+                      "This platform has revolutionized how we make data-driven decisions. What used
+                      to take hours now happens in real-time."
                     </div>
                   </div>
                   <div className="flex items-center justify-center gap-4">
-                    <Image src="/client-3.png" alt="Jennifer Kim" width={64} height={64} className="rounded-full" />
+                    <Image
+                      src="/client-3.png"
+                      alt="Jennifer Kim"
+                      width={64}
+                      height={64}
+                      className="rounded-full"
+                    />
                     <div className="text-center">
                       <div className="font-semibold text-zinc-900">Jennifer Kim</div>
                       <div className="text-sm text-zinc-600">VP Engineering, DataSync Corp</div>
@@ -256,13 +279,20 @@ export default function DataSyncCaseStudy() {
         <section className="w-full py-16 bg-zinc-900 text-white">
           <div className="container px-4 md:px-6">
             <div className="text-center space-y-6">
-              <h2 className="text-2xl font-bold tracking-tight">Ready to unlock your data's potential?</h2>
+              <h2 className="text-2xl font-bold tracking-tight">
+                Ready to unlock your data's potential?
+              </h2>
               <p className="text-zinc-300 max-w-2xl mx-auto">
-                Let's discuss how we can help you build a modern analytics platform that drives better decisions.
+                Let's discuss how we can help you build a modern analytics platform that drives
+                better decisions.
               </p>
-              <Button size="lg" className="bg-white text-zinc-900 hover:bg-zinc-100">
-                Start Your Project
-              </Button>
+              <GetStartedModal
+                trigger={
+                  <Button size="lg" className="bg-white text-zinc-900 hover:bg-zinc-100">
+                    Start Your Project
+                  </Button>
+                }
+              />
             </div>
           </div>
         </section>
@@ -280,9 +310,13 @@ export default function DataSyncCaseStudy() {
                 height={32}
                 className="rounded-lg"
               />
-              <span className="text-xl font-semibold tracking-tight text-zinc-900">Code Collective</span>
+              <span className="text-xl font-semibold tracking-tight text-zinc-900">
+                Code Collective
+              </span>
             </div>
-            <p className="text-zinc-600 text-sm">Enterprise web development solutions that scale with your business.</p>
+            <p className="text-zinc-600 text-sm">
+              Enterprise web development solutions that scale with your business.
+            </p>
           </div>
           <div className="mt-6 border-t border-zinc-200 pt-4 text-center text-sm text-zinc-500">
             &copy; {new Date().getFullYear()} Code Collective. All rights reserved.
@@ -290,5 +324,5 @@ export default function DataSyncCaseStudy() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
