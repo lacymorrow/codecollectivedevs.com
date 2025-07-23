@@ -1,11 +1,10 @@
+'use client';
+
 import React, {
   Children,
   cloneElement,
-  forwardRef,
   isValidElement,
-  ReactElement,
   ReactNode,
-  RefObject,
   useEffect,
   useMemo,
   useRef,
@@ -40,7 +39,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(({ customClass, ...res
 ));
 Card.displayName = 'Card';
 
-type CardRef = RefObject<HTMLDivElement>;
+type CardRef = React.RefObject<HTMLDivElement | null>;
 interface Slot {
   x: number;
   y: number;
@@ -99,12 +98,10 @@ const CardSwap: React.FC<CardSwapProps> = ({
           returnDelay: 0.2,
         };
 
-  const childArr = useMemo(
-    () => Children.toArray(children) as ReactElement<CardProps>[],
-    [children],
-  );
+  const childArr = useMemo(() => Children.toArray(children), [children]);
   const refs = useMemo<CardRef[]>(
     () => childArr.map(() => React.createRef<HTMLDivElement>()),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [childArr.length],
   );
 

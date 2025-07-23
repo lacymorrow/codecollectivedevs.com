@@ -1,5 +1,5 @@
 'use client';
-
+import { Suspense } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -10,6 +10,39 @@ import { GetStartedModal } from '@/components/GetStartedModal';
 export default function ArtisanCaseStudy() {
   return (
     <div className="flex min-h-screen flex-col bg-white">
+      {/* Structured Data for Case Study */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            headline: 'Artisan Storefront Case Study',
+            description:
+              'How we built a modern e-commerce storefront for Artisan using headless commerce',
+            image: '/artisan-storefront.png',
+            author: {
+              '@type': 'Organization',
+              name: 'Code Collective',
+            },
+            publisher: {
+              '@type': 'Organization',
+              name: 'Code Collective',
+              logo: {
+                '@type': 'ImageObject',
+                url: '/code-collective-logo.png',
+              },
+            },
+            datePublished: '2023-01-01',
+            dateModified: new Date().toISOString(),
+            mainEntityOfPage: {
+              '@type': 'WebPage',
+              '@id': 'https://codecollectivedevs.com/case-studies/artisan',
+            },
+          }),
+        }}
+      />
+
       {/* Header */}
       <header className="sticky top-0 z-50 w-full border-b border-zinc-200/80 bg-white/80 backdrop-blur-xl">
         <div className="container mx-auto flex h-16 items-center justify-between">
@@ -45,13 +78,21 @@ export default function ArtisanCaseStudy() {
               Pricing
             </Link>
           </nav>
-          <GetStartedModal
-            trigger={
-              <Button size="sm" className="bg-zinc-900 hover:bg-zinc-800 text-white">
+          <Suspense
+            fallback={
+              <Button size="sm" disabled>
                 Get Started
               </Button>
             }
-          />
+          >
+            <GetStartedModal
+              trigger={
+                <Button size="sm" className="bg-zinc-900 hover:bg-zinc-800 text-white">
+                  Get Started
+                </Button>
+              }
+            />
+          </Suspense>
         </div>
       </header>
 
@@ -92,7 +133,8 @@ export default function ArtisanCaseStudy() {
                   </div>
                   <p className="text-xl text-zinc-600 leading-relaxed">
                     How we built a modern headless e-commerce platform using Swell that processes
-                    $2M+ in monthly transactions and increased sales by 60% in the first quarter.
+                    over $2M in monthly transactions and increased sales by 60% in the first
+                    quarter.
                   </p>
                 </div>
 
@@ -152,19 +194,19 @@ export default function ArtisanCaseStudy() {
                   </p>
                   <ul className="space-y-2 ml-4">
                     <li className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-1.5 h-1.5 bg-red-500 rounded-full mt-2 flex-shrink-0" />
                       <span>Slow page load times (8+ seconds) causing high bounce rates</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-1.5 h-1.5 bg-red-500 rounded-full mt-2 flex-shrink-0" />
                       <span>Limited customization options for the storefront design</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-1.5 h-1.5 bg-red-500 rounded-full mt-2 flex-shrink-0" />
                       <span>Poor mobile experience with low conversion rates</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-1.5 h-1.5 bg-red-500 rounded-full mt-2 flex-shrink-0" />
                       <span>Difficulty managing inventory across multiple sales channels</span>
                     </li>
                   </ul>
@@ -180,19 +222,19 @@ export default function ArtisanCaseStudy() {
                   </p>
                   <ul className="space-y-2 ml-4">
                     <li className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0" />
                       <span>Lightning-fast storefront with 2.3s average page load times</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0" />
                       <span>Fully custom design system with advanced product filtering</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0" />
                       <span>Mobile-first responsive design with 98/100 mobile score</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0" />
                       <span>Integrated inventory management across all sales channels</span>
                     </li>
                   </ul>
@@ -249,10 +291,10 @@ export default function ArtisanCaseStudy() {
               <CardContent className="p-8 md:p-12">
                 <div className="space-y-6">
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-zinc-900 mb-4">
-                      "The new platform exceeded all our expectations. We've seen incredible growth
-                      and our customers love the experience."
-                    </div>
+                    <blockquote className="text-2xl font-bold text-zinc-900 mb-4">
+                      "The new platform exceeded all our expectations. We&apos;ve seen incredible
+                      growth and our customers love the experience."
+                    </blockquote>
                   </div>
                   <div className="flex items-center justify-center gap-4">
                     <Image
@@ -281,16 +323,24 @@ export default function ArtisanCaseStudy() {
                 Ready to transform your e-commerce platform?
               </h2>
               <p className="text-zinc-300 max-w-2xl mx-auto">
-                Let's discuss how we can help you build a modern, high-performing e-commerce
+                Let&apos;s discuss how we can help you build a modern, high-performing e-commerce
                 solution.
               </p>
-              <GetStartedModal
-                trigger={
-                  <Button size="lg" className="bg-white text-zinc-900 hover:bg-zinc-100">
+              <Suspense
+                fallback={
+                  <Button size="lg" disabled>
                     Start Your Project
                   </Button>
                 }
-              />
+              >
+                <GetStartedModal
+                  trigger={
+                    <Button size="lg" className="bg-white text-zinc-900 hover:bg-zinc-100">
+                      Start Your Project
+                    </Button>
+                  }
+                />
+              </Suspense>
             </div>
           </div>
         </section>

@@ -29,4 +29,3 @@ export async function POST(req: NextRequest) {
   }
 }
 // Set RESEND_API_KEY and RESEND_AUDIENCE_ID in your environment variables.
- 

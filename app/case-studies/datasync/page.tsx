@@ -1,5 +1,6 @@
 'use client';
 
+import { Suspense } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -45,13 +46,21 @@ export default function DataSyncCaseStudy() {
               Pricing
             </Link>
           </nav>
-          <GetStartedModal
-            trigger={
-              <Button size="sm" className="bg-zinc-900 hover:bg-zinc-800 text-white">
+          <Suspense
+            fallback={
+              <Button size="sm" disabled>
                 Get Started
               </Button>
             }
-          />
+          >
+            <GetStartedModal
+              trigger={
+                <Button size="sm" className="bg-zinc-900 hover:bg-zinc-800 text-white">
+                  Get Started
+                </Button>
+              }
+            />
+          </Suspense>
         </div>
       </header>
 
@@ -177,25 +186,25 @@ export default function DataSyncCaseStudy() {
                 <h2 className="text-2xl font-bold tracking-tight text-zinc-900">Our Solution</h2>
                 <div className="space-y-4 text-zinc-600 leading-relaxed">
                   <p>
-                    We built a modern, real-time analytics platform with advanced visualization
-                    capabilities and machine learning integration:
+                    We built a real-time data synchronization dashboard using Next.js, WebSockets,
+                    and a high-performance database cluster. Our solution provided:
                   </p>
                   <ul className="space-y-2 ml-4">
                     <li className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <span>Real-time data processing with sub-200ms query responses</span>
+                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0" />
+                      <span>Sub-second data updates across all connected clients</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <span>Scalable architecture handling 100GB+ daily data volume</span>
+                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0" />
+                      <span>Customizable dashboard with real-time charts and alerts</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <span>Interactive dashboards with custom visualization components</span>
+                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0" />
+                      <span>99.9% uptime with automated failover and recovery</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <span>Predictive analytics with machine learning models</span>
+                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0" />
+                      <span>Secure data handling with end-to-end encryption</span>
                     </li>
                   </ul>
                 </div>
@@ -210,34 +219,34 @@ export default function DataSyncCaseStudy() {
             <div className="space-y-12">
               <div className="text-center space-y-4">
                 <h2 className="text-2xl font-bold tracking-tight text-zinc-900">
-                  Transformational Results
+                  Key Performance Metrics
                 </h2>
                 <p className="text-zinc-600 max-w-2xl mx-auto">
-                  The new analytics platform delivered immediate improvements in decision-making
-                  speed and data insights.
+                  The new platform handles massive data loads with exceptional reliability and
+                  performance.
                 </p>
               </div>
 
               <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
                 <div className="text-center space-y-2">
-                  <div className="text-4xl font-bold text-purple-600">10x</div>
-                  <div className="text-sm font-medium text-zinc-900">Faster Insights</div>
-                  <div className="text-xs text-zinc-600">From hours to minutes</div>
+                  <div className="text-4xl font-bold text-green-600">1M+</div>
+                  <div className="text-sm font-medium text-zinc-900">Data Points Daily</div>
+                  <div className="text-xs text-zinc-600">Processed in real-time</div>
                 </div>
                 <div className="text-center space-y-2">
-                  <div className="text-4xl font-bold text-blue-600">10x</div>
-                  <div className="text-sm font-medium text-zinc-900">Data Capacity</div>
-                  <div className="text-xs text-zinc-600">100GB+ daily processing</div>
+                  <div className="text-4xl font-bold text-blue-600">&lt;500ms</div>
+                  <div className="text-sm font-medium text-zinc-900">Update Latency</div>
+                  <div className="text-xs text-zinc-600">Across all clients</div>
                 </div>
                 <div className="text-center space-y-2">
-                  <div className="text-4xl font-bold text-green-600">95%</div>
-                  <div className="text-sm font-medium text-zinc-900">User Adoption</div>
-                  <div className="text-xs text-zinc-600">Across all departments</div>
+                  <div className="text-4xl font-bold text-purple-600">99.9%</div>
+                  <div className="text-sm font-medium text-zinc-900">Uptime</div>
+                  <div className="text-xs text-zinc-600">Guaranteed by SLA</div>
                 </div>
                 <div className="text-center space-y-2">
-                  <div className="text-4xl font-bold text-orange-600">200ms</div>
-                  <div className="text-sm font-medium text-zinc-900">Query Speed</div>
-                  <div className="text-xs text-zinc-600">Average response time</div>
+                  <div className="text-4xl font-bold text-orange-600">10k</div>
+                  <div className="text-sm font-medium text-zinc-900">Active Users</div>
+                  <div className="text-xs text-zinc-600">Monitoring data feeds</div>
                 </div>
               </div>
             </div>
@@ -251,22 +260,22 @@ export default function DataSyncCaseStudy() {
               <CardContent className="p-8 md:p-12">
                 <div className="space-y-6">
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-zinc-900 mb-4">
-                      "This platform has revolutionized how we make data-driven decisions. What used
-                      to take hours now happens in real-time."
-                    </div>
+                    <blockquote className="text-2xl font-bold text-zinc-900 mb-4">
+                      "Code Collective delivered a flawless solution that has become
+                      mission-critical for our operations. Their expertise is unmatched."
+                    </blockquote>
                   </div>
                   <div className="flex items-center justify-center gap-4">
                     <Image
                       src="/client-3.png"
-                      alt="Jennifer Kim"
+                      alt="Elena Petrova"
                       width={64}
                       height={64}
                       className="rounded-full"
                     />
                     <div className="text-center">
-                      <div className="font-semibold text-zinc-900">Jennifer Kim</div>
-                      <div className="text-sm text-zinc-600">VP Engineering, DataSync Corp</div>
+                      <div className="font-semibold text-zinc-900">Elena Petrova</div>
+                      <div className="text-sm text-zinc-600">CTO, DataSync</div>
                     </div>
                   </div>
                 </div>
@@ -280,19 +289,26 @@ export default function DataSyncCaseStudy() {
           <div className="container px-4 md:px-6">
             <div className="text-center space-y-6">
               <h2 className="text-2xl font-bold tracking-tight">
-                Ready to unlock your data's potential?
+                Need a high-performance data solution?
               </h2>
               <p className="text-zinc-300 max-w-2xl mx-auto">
-                Let's discuss how we can help you build a modern analytics platform that drives
-                better decisions.
+                Let&apos;s talk about how we can build a custom dashboard to meet your data needs.
               </p>
-              <GetStartedModal
-                trigger={
-                  <Button size="lg" className="bg-white text-zinc-900 hover:bg-zinc-100">
-                    Start Your Project
+              <Suspense
+                fallback={
+                  <Button size="lg" disabled>
+                    Get a Custom Quote
                   </Button>
                 }
-              />
+              >
+                <GetStartedModal
+                  trigger={
+                    <Button size="lg" className="bg-white text-zinc-900 hover:bg-zinc-100">
+                      Get a Custom Quote
+                    </Button>
+                  }
+                />
+              </Suspense>
             </div>
           </div>
         </section>

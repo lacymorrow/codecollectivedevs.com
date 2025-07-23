@@ -1,7 +1,5 @@
-'use client';
-
+import { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -21,42 +19,89 @@ import { HeroSection } from '@/components/blocks/hero-section-1';
 import CaseStudies from '@/components/blocks/case-studies';
 import { GetStartedModal } from '@/components/GetStartedModal';
 import { ScheduleCallModal } from '@/components/ScheduleCallModal';
+import { Suspense } from 'react';
 
-const enterpriseCards = [
-  {
-    icon: <Monitor className="size-4 text-violet-300" />,
-    title: 'Full-Stack Apps',
-    description: 'Performance-driven applications',
-    date: 'React, Next.js, Node.js',
-    iconClassName: 'bg-violet-800',
-    titleClassName: 'text-violet-500',
-    className:
-      "[grid-area:stack] hover:-translate-y-10 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0",
+export const metadata: Metadata = {
+  title: 'Expert Web Development Agency - Code Collective',
+  description:
+    'Transform your business with enterprise-grade web applications. We deliver 95+ Lighthouse scores, perfect SEO, and exceptional user experiences. Led by expert developer Lacy Morrow.',
+  openGraph: {
+    title: 'Expert Web Development Agency - Code Collective',
+    description:
+      'Transform your business with enterprise-grade web applications. We deliver 95+ Lighthouse scores, perfect SEO, and exceptional user experiences.',
+    type: 'website',
+    images: [
+      {
+        url: '/code-collective-hero.png',
+        width: 1200,
+        height: 630,
+        alt: 'Code Collective - Expert Web Development Agency',
+      },
+    ],
   },
-  {
-    icon: <Layers className="size-4 text-blue-300" />,
-    title: 'API Integrations',
-    description: 'Connecting enterprise systems',
-    date: 'Twilio, Stripe, Salesforce',
-    iconClassName: 'bg-blue-800',
-    titleClassName: 'text-blue-500',
-    className:
-      "[grid-area:stack] translate-x-12 translate-y-10 hover:-translate-y-1 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0",
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Expert Web Development Agency - Code Collective',
+    description:
+      'Transform your business with enterprise-grade web applications. We deliver 95+ Lighthouse scores, perfect SEO, and exceptional user experiences.',
+    images: ['/code-collective-hero.png'],
   },
-  {
-    icon: <ShoppingCart className="size-4 text-green-300" />,
-    title: 'E-commerce',
-    description: 'Headless commerce solutions',
-    date: 'Swell, Shopify Plus',
-    iconClassName: 'bg-green-800',
-    titleClassName: 'text-green-500',
-    className: '[grid-area:stack] translate-x-24 translate-y-20 hover:translate-y-10',
+  alternates: {
+    canonical: '/',
   },
-];
+};
 
 export default function LandingPage() {
   return (
     <div className="flex min-h-screen flex-col bg-white">
+      {/* Structured Data for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Service',
+            serviceType: 'Web Development',
+            provider: {
+              '@type': 'Organization',
+              name: 'Code Collective',
+              founder: 'Lacy Morrow',
+            },
+            areaServed: 'Worldwide',
+            hasOfferCatalog: {
+              '@type': 'OfferCatalog',
+              name: 'Web Development Services',
+              itemListElement: [
+                {
+                  '@type': 'Offer',
+                  itemOffered: {
+                    '@type': 'Service',
+                    name: 'Full-Stack Application Development',
+                    description: 'Custom React, Next.js, and Node.js applications',
+                  },
+                },
+                {
+                  '@type': 'Offer',
+                  itemOffered: {
+                    '@type': 'Service',
+                    name: 'API Integration Services',
+                    description: 'Connect enterprise systems with third-party APIs',
+                  },
+                },
+                {
+                  '@type': 'Offer',
+                  itemOffered: {
+                    '@type': 'Service',
+                    name: 'E-commerce Development',
+                    description: 'Headless commerce solutions with modern frameworks',
+                  },
+                },
+              ],
+            },
+          }),
+        }}
+      />
+
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative w-full pt-10 pb-16 md:pt-20 md:pb-24 overflow-hidden bg-white">
@@ -64,10 +109,7 @@ export default function LandingPage() {
         </section>
 
         {/* Lighthouse Performance Section */}
-        <section
-          id="lighthouse-performance"
-          className="w-full py-20 md:py-32 bg-zinc-50"
-        >
+        <section id="lighthouse-performance" className="w-full py-20 md:py-32 bg-zinc-50">
           <div className="container mx-auto px-4 md:px-6">
             <div className="grid gap-12 items-center max-w-7xl mx-auto">
               {/* Left: Content */}
@@ -86,8 +128,8 @@ export default function LandingPage() {
                     className="text-xl text-zinc-600 leading-relaxed scroll-animate"
                     style={{ animationDelay: '0.1s' }}
                   >
-                    We don&apos;t just build websites—we engineer performance machines. Every site we
-                    deliver achieves 95+ Lighthouse scores across performance, SEO, and
+                    We don&apos;t just build websites—we engineer performance machines. Every site
+                    we deliver achieves 95+ Lighthouse scores across performance, SEO, and
                     accessibility.
                   </p>
                 </div>
@@ -147,9 +189,6 @@ export default function LandingPage() {
                   </div>
                 </div>
               </div>
-
-              {/* Right: Apple Activity Card */}
-              {/* Apple Activity Card intentionally removed after cleanup */}
             </div>
           </div>
         </section>
@@ -262,13 +301,21 @@ export default function LandingPage() {
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <GetStartedModal
-                    trigger={
-                  <Button className="w-full bg-transparent" variant="outline">
-                    Get Started
-                  </Button>
+                  <Suspense
+                    fallback={
+                      <Button className="w-full" variant="outline" disabled>
+                        Get Started
+                      </Button>
                     }
-                  />
+                  >
+                    <GetStartedModal
+                      trigger={
+                        <Button className="w-full bg-transparent" variant="outline">
+                          Get Started
+                        </Button>
+                      }
+                    />
+                  </Suspense>
                 </CardFooter>
               </Card>
 
@@ -322,7 +369,9 @@ export default function LandingPage() {
             <div className="mx-auto max-w-3xl text-center space-y-8">
               <div className="space-y-4">
                 <div className="flex justify-center scroll-animate">
-                  {/* AppleHelloEnglishEffect intentionally removed after cleanup */}
+                  <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-zinc-900">
+                    Ready to get started?
+                  </h2>
                 </div>
                 <p
                   className="text-xl text-zinc-600 scroll-animate"
@@ -335,28 +384,44 @@ export default function LandingPage() {
                 className="flex flex-col sm:flex-row gap-4 justify-center scroll-animate"
                 style={{ animationDelay: '0.2s' }}
               >
-                <GetStartedModal
-                  trigger={
-                <Button
-                  size="lg"
-                  className="bg-zinc-900 hover:bg-zinc-800 text-white px-8 transition-transform hover:scale-105"
-                >
-                  Start your project
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
+                <Suspense
+                  fallback={
+                    <Button size="lg" disabled>
+                      Start your project
+                    </Button>
                   }
-                />
-                <ScheduleCallModal
-                  trigger={
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="px-8 bg-transparent transition-transform hover:scale-105"
                 >
-                  Schedule a call
-                </Button>
+                  <GetStartedModal
+                    trigger={
+                      <Button
+                        size="lg"
+                        className="bg-zinc-900 hover:bg-zinc-800 text-white px-8 transition-transform hover:scale-105"
+                      >
+                        Start your project
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
+                    }
+                  />
+                </Suspense>
+                <Suspense
+                  fallback={
+                    <Button variant="outline" size="lg" disabled>
+                      Schedule a call
+                    </Button>
                   }
-                />
+                >
+                  <ScheduleCallModal
+                    trigger={
+                      <Button
+                        variant="outline"
+                        size="lg"
+                        className="px-8 bg-transparent transition-transform hover:scale-105"
+                      >
+                        Schedule a call
+                      </Button>
+                    }
+                  />
+                </Suspense>
               </div>
             </div>
           </div>

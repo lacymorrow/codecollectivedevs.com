@@ -1,5 +1,6 @@
 'use client';
 
+import { Suspense } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -45,13 +46,21 @@ export default function TechFlowCaseStudy() {
               Pricing
             </Link>
           </nav>
-          <GetStartedModal
-            trigger={
-              <Button size="sm" className="bg-zinc-900 hover:bg-zinc-800 text-white">
+          <Suspense
+            fallback={
+              <Button size="sm" disabled>
                 Get Started
               </Button>
             }
-          />
+          >
+            <GetStartedModal
+              trigger={
+                <Button size="sm" className="bg-zinc-900 hover:bg-zinc-800 text-white">
+                  Get Started
+                </Button>
+              }
+            />
+          </Suspense>
         </div>
       </header>
 
@@ -183,25 +192,25 @@ export default function TechFlowCaseStudy() {
                 <h2 className="text-2xl font-bold tracking-tight text-zinc-900">Our Solution</h2>
                 <div className="space-y-4 text-zinc-600 leading-relaxed">
                   <p>
-                    We designed and built a modern, scalable communication platform using Twilio's
-                    enterprise APIs combined with a custom-built management dashboard:
+                    We developed a comprehensive tech workflow platform using Next.js and a modular
+                    backend architecture. The solution included:
                   </p>
                   <ul className="space-y-2 ml-4">
                     <li className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <span>Scalable microservices architecture</span>
+                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0" />
+                      <span>Drag-and-drop workflow builder for custom process automation</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <span>Real-time analytics dashboard</span>
+                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0" />
+                      <span>Integration with 20+ third-party tools (Jira, Slack, GitHub)</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <span>Cost-optimized infrastructure</span>
+                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0" />
+                      <span>Role-based access control with detailed audit logs</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <span>Fast message processing with high uptime</span>
+                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0" />
+                      <span>Real-time notifications and collaboration features</span>
                     </li>
                   </ul>
                 </div>
@@ -216,34 +225,34 @@ export default function TechFlowCaseStudy() {
             <div className="space-y-12">
               <div className="text-center space-y-4">
                 <h2 className="text-2xl font-bold tracking-tight text-zinc-900">
-                  Results & Impact
+                  Productivity Gains
                 </h2>
                 <p className="text-zinc-600 max-w-2xl mx-auto">
-                  The new platform delivered significant improvements across all key metrics within
-                  the first quarter.
+                  The new platform streamlined internal processes, leading to significant
+                  improvements in team productivity and efficiency.
                 </p>
               </div>
 
               <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
                 <div className="text-center space-y-2">
-                  <div className="text-4xl font-bold text-blue-600">10x</div>
-                  <div className="text-sm font-medium text-zinc-900">Message Volume</div>
-                  <div className="text-xs text-zinc-600">From 100k to 1M+ daily</div>
-                </div>
-                <div className="text-center space-y-2">
                   <div className="text-4xl font-bold text-green-600">40%</div>
-                  <div className="text-sm font-medium text-zinc-900">Cost Reduction</div>
-                  <div className="text-xs text-zinc-600">$120k annual savings</div>
+                  <div className="text-sm font-medium text-zinc-900">Productivity Increase</div>
+                  <div className="text-xs text-zinc-600">Across all teams</div>
                 </div>
                 <div className="text-center space-y-2">
-                  <div className="text-4xl font-bold text-purple-600">60x</div>
-                  <div className="text-sm font-medium text-zinc-900">Faster Processing</div>
-                  <div className="text-xs text-zinc-600">From 3s to 50ms average</div>
+                  <div className="text-4xl font-bold text-blue-600">50%</div>
+                  <div className="text-sm font-medium text-zinc-900">Fewer Manual Tasks</div>
+                  <div className="text-xs text-zinc-600">Through automation</div>
                 </div>
                 <div className="text-center space-y-2">
-                  <div className="text-4xl font-bold text-orange-600">99.9%</div>
-                  <div className="text-sm font-medium text-zinc-900">Uptime</div>
-                  <div className="text-xs text-zinc-600">Enterprise SLA compliance</div>
+                  <div className="text-4xl font-bold text-purple-600">2x</div>
+                  <div className="text-sm font-medium text-zinc-900">Faster Project Delivery</div>
+                  <div className="text-xs text-zinc-600">Reduced cycle times</div>
+                </div>
+                <div className="text-center space-y-2">
+                  <div className="text-4xl font-bold text-orange-600">95%</div>
+                  <div className="text-sm font-medium text-zinc-900">User Adoption</div>
+                  <div className="text-xs text-zinc-600">Within the first month</div>
                 </div>
               </div>
             </div>
@@ -257,10 +266,10 @@ export default function TechFlowCaseStudy() {
               <CardContent className="p-8 md:p-12">
                 <div className="space-y-6">
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-zinc-900 mb-4">
-                      "The transformation has been incredible. We went from constant firefighting to
-                      having a platform that just works."
-                    </div>
+                    <blockquote className="text-2xl font-bold text-zinc-900 mb-4">
+                      "This platform has revolutionized how our team works. It's intuitive,
+                      powerful, and has eliminated countless hours of manual effort."
+                    </blockquote>
                   </div>
                   <div className="flex items-center justify-center gap-4">
                     <Image
@@ -272,7 +281,7 @@ export default function TechFlowCaseStudy() {
                     />
                     <div className="text-center">
                       <div className="font-semibold text-zinc-900">Sarah Chen</div>
-                      <div className="text-sm text-zinc-600">CTO, TechFlow Solutions</div>
+                      <div className="text-sm text-zinc-600">Head of Operations, TechFlow</div>
                     </div>
                   </div>
                 </div>
@@ -286,19 +295,26 @@ export default function TechFlowCaseStudy() {
           <div className="container px-4 md:px-6">
             <div className="text-center space-y-6">
               <h2 className="text-2xl font-bold tracking-tight">
-                Ready to scale your communication platform?
+                Streamline your workflows with a custom platform
               </h2>
               <p className="text-zinc-300 max-w-2xl mx-auto">
-                Let's discuss how we can help you build a solution that handles your growing
-                business needs.
+                Let&apos;s build a solution that empowers your team and drives productivity.
               </p>
-              <GetStartedModal
-                trigger={
-                  <Button size="lg" className="bg-white text-zinc-900 hover:bg-zinc-100">
-                    Start Your Project
+              <Suspense
+                fallback={
+                  <Button size="lg" disabled>
+                    Schedule a Demo
                   </Button>
                 }
-              />
+              >
+                <GetStartedModal
+                  trigger={
+                    <Button size="lg" className="bg-white text-zinc-900 hover:bg-zinc-100">
+                      Schedule a Demo
+                    </Button>
+                  }
+                />
+              </Suspense>
             </div>
           </div>
         </section>

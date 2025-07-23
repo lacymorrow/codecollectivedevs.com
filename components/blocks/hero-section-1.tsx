@@ -1,9 +1,11 @@
+'use client';
+
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, AtomIcon, ChevronRight, Menu, X } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { AnimatedGroup } from '@/components/ui/animated-group';
-import { cn } from '@/lib/utils';
 import { GetStartedModal } from '@/components/GetStartedModal';
 import { ScheduleCallModal } from '@/components/ScheduleCallModal';
 
@@ -69,12 +71,12 @@ export function HeroSection() {
               }}
               className="absolute inset-0 -z-20"
             >
-              <img
+              <Image
                 src="https://ik.imagekit.io/lrigu76hy/tailark/night-background.jpg?updatedAt=1745733451120"
                 alt="background"
                 className="absolute inset-x-0 top-56 -z-20 hidden lg:top-32 dark:block"
-                width="3276"
-                height="4095"
+                width={3276}
+                height={4095}
               />
             </AnimatedGroup>
             <div
@@ -85,19 +87,13 @@ export function HeroSection() {
               <div className="text-center sm:mx-auto lg:mr-auto lg:mt-0">
                 <AnimatedGroup variants={transitionVariants}>
                   <Link
-                    href="#link"
+                    href="#pricing"
                     className="hover:bg-background dark:hover:border-t-border bg-muted group mx-auto flex w-fit items-center gap-4 rounded-full border p-1 pl-4 shadow-md shadow-black/5 transition-all duration-300 dark:border-t-white/5 dark:shadow-zinc-950"
                   >
-                    <span
-                      className="text-foreground text-sm cursor-pointer underline hover:text-primary"
-                      onClick={() => {
-                        const el = document.getElementById('pricing');
-                        if (el) el.scrollIntoView({ behavior: 'smooth' });
-                      }}
-                    >
+                    <span className="text-foreground text-sm cursor-pointer underline hover:text-primary">
                       Introducing Support for AI Models
                     </span>
-                    <span className="dark:border-background block h-4 w-0.5 border-l bg-white dark:bg-zinc-700"></span>
+                    <span className="dark:border-background block h-4 w-0.5 border-l bg-white dark:bg-zinc-700" />
 
                     <div className="bg-background group-hover:bg-muted size-6 overflow-hidden rounded-full duration-500">
                       <div className="flex w-12 -translate-x-1/2 duration-500 ease-in-out group-hover:translate-x-0">
@@ -139,7 +135,7 @@ export function HeroSection() {
                       trigger={
                         <Button size="lg" className="rounded-xl px-5 text-base">
                           Start Building
-                    </Button>
+                        </Button>
                       }
                     />
                   </div>
@@ -147,7 +143,7 @@ export function HeroSection() {
                     trigger={
                       <Button key={2} size="lg" variant="ghost" className="h-10.5 rounded-xl px-5">
                         Request a demo
-                  </Button>
+                      </Button>
                     }
                   />
                 </AnimatedGroup>
