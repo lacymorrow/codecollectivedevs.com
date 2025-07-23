@@ -123,6 +123,20 @@ body {
   animation-play-state: paused !important;
 }
 
+/* Accessibility: Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-left,
+  .animate-marquee-right {
+    animation: none;
+  }
+  
+  .scroll-animate {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @keyframes fade-in-up {
   from {
     opacity: 0;

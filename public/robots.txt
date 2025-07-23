@@ -1,6 +1,9 @@
 User-agent: *
 Allow: /
 
+# Crawl-delay for polite crawling
+Crawl-delay: 1 
+
 # Sitemaps
 Sitemap: https://codecollective.dev/sitemap.xml
 
@@ -17,6 +20,3 @@ Allow: /
 
 User-agent: Slurp
 Allow: /
-
-# Crawl-delay for polite crawling
-Crawl-delay: 1 
