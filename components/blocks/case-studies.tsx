@@ -161,9 +161,9 @@ export default function CaseStudies() {
                       </Badge>
                     </div>
 
-                    <Link href="/case-studies/techflow" className="block">
+                    <Link href="/schedule" className="block">
                       <Button variant="outline" className="w-full group">
-                        View Case Study
+                        Discuss Your Project
                         <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                       </Button>
                     </Link>
@@ -225,9 +225,9 @@ export default function CaseStudies() {
                       </Badge>
                     </div>
 
-                    <Link href="/case-studies/artisan" className="block">
+                    <Link href="/schedule" className="block">
                       <Button variant="outline" className="w-full group">
-                        View Case Study
+                        Discuss Your Project
                         <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                       </Button>
                     </Link>
@@ -289,9 +289,9 @@ export default function CaseStudies() {
                       </Badge>
                     </div>
 
-                    <Link href="/case-studies/datasync" className="block">
+                    <Link href="/schedule" className="block">
                       <Button variant="outline" className="w-full group">
-                        View Case Study
+                        Discuss Your Project
                         <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                       </Button>
                     </Link>
