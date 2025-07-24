@@ -22,7 +22,7 @@ export function ScheduleCallModal({ trigger }: { trigger: React.ReactNode }) {
         </DialogHeader>
         <div className="w-full min-h-[600px]">
           <CalEmbed
-            calLink="lacymorrow/code-collective"
+            calLink="lacymorrow/dev"
             className="w-full h-full"
             config={{ layout: 'month_view' }}
           />
