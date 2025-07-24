@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 /**
  * @author: @kokonutui
@@ -10,8 +10,8 @@
  * @github: https://github.com/kokonut-labs/kokonutui
  */
 
-import { motion } from "motion/react";
-import { cn } from "@/lib/utils";
+import { motion } from 'motion/react';
+import { cn } from '@/lib/utils';
 
 interface ActivityData {
   label: string;
@@ -30,31 +30,31 @@ interface CircleProgressProps {
 
 const activities: ActivityData[] = [
   {
-    label: "PERFORMANCE",
+    label: 'PERFORMANCE',
     value: 96,
-    color: "#FF2D55",
+    color: '#FF2D55',
     size: 200,
     current: 850,
     target: 1000,
-    unit: "MS",
+    unit: 'MS',
   },
   {
-    label: "SEO",
+    label: 'SEO',
     value: 94,
-    color: "#A3F900",
+    color: '#A3F900',
     size: 160,
     current: 94,
     target: 100,
-    unit: "SCORE",
+    unit: 'SCORE',
   },
   {
-    label: "ACCESSIBILITY",
+    label: 'ACCESSIBILITY',
     value: 98,
-    color: "#04C7DD",
+    color: '#04C7DD',
     size: 120,
     current: 98,
     target: 100,
-    unit: "SCORE",
+    unit: 'SCORE',
   },
 ];
 
@@ -72,7 +72,7 @@ const CircleProgress = ({ data, index }: CircleProgressProps) => {
       className="absolute inset-0 flex items-center justify-center"
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.8, delay: index * 0.2, ease: "easeOut" }}
+      transition={{ duration: 0.8, delay: index * 0.2, ease: 'easeOut' }}
     >
       <div className="relative">
         <svg
@@ -97,11 +97,11 @@ const CircleProgress = ({ data, index }: CircleProgressProps) => {
                 offset="100%"
                 style={{
                   stopColor:
-                    data.color === "#FF2D55"
-                      ? "#FF6B8B"
-                      : data.color === "#A3F900"
-                      ? "#C5FF4D"
-                      : "#4DDFED",
+                    data.color === '#FF2D55'
+                      ? '#FF6B8B'
+                      : data.color === '#A3F900'
+                        ? '#C5FF4D'
+                        : '#4DDFED',
                   stopOpacity: 1,
                 }}
               />
@@ -131,11 +131,11 @@ const CircleProgress = ({ data, index }: CircleProgressProps) => {
             transition={{
               duration: 1.8,
               delay: index * 0.2,
-              ease: "easeInOut",
+              ease: 'easeInOut',
             }}
             strokeLinecap="round"
             style={{
-              filter: "drop-shadow(0 0 6px rgba(0,0,0,0.15))",
+              filter: 'drop-shadow(0 0 6px rgba(0,0,0,0.15))',
             }}
           />
         </svg>
@@ -157,14 +157,9 @@ const DetailedActivityInfo = () => {
           <span className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
             {activity.label}
           </span>
-          <span
-            className="text-2xl font-semibold"
-            style={{ color: activity.color }}
-          >
+          <span className="text-2xl font-semibold" style={{ color: activity.color }}>
             {activity.current}/{activity.target}
-            <span className="text-base ml-1 text-zinc-600 dark:text-zinc-400">
-              {activity.unit}
-            </span>
+            <span className="text-base ml-1 text-zinc-600 dark:text-zinc-400">{activity.unit}</span>
           </span>
         </motion.div>
       ))}
@@ -173,7 +168,7 @@ const DetailedActivityInfo = () => {
 };
 
 export default function AppleActivityCard({
-  title = "Activity Rings",
+  title = 'Activity Rings',
   className,
 }: {
   title?: string;
@@ -182,9 +177,9 @@ export default function AppleActivityCard({
   return (
     <div
       className={cn(
-        "relative w-full max-w-3xl mx-auto p-8 rounded-3xl",
-        "text-zinc-900 dark:text-white",
-        className
+        'relative w-full max-w-3xl mx-auto p-8 rounded-3xl',
+        'text-zinc-900 dark:text-white',
+        className,
       )}
     >
       <div className="flex flex-col items-center gap-8">
@@ -200,11 +195,7 @@ export default function AppleActivityCard({
         <div className="flex items-center">
           <div className="relative w-[180px] h-[180px]">
             {activities.map((activity, index) => (
-              <CircleProgress
-                key={activity.label}
-                data={activity}
-                index={index}
-              />
+              <CircleProgress key={activity.label} data={activity} index={index} />
             ))}
           </div>
           <DetailedActivityInfo />

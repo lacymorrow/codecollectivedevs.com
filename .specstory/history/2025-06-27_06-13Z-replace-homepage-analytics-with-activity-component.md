@@ -58,9 +58,10 @@ Read file: components/kokonutui/apple-activity-card.tsx
 
 ---
 
-<think><details><summary>Thought Process</summary>Now I have the complete picture of the Apple Activity Card component. It's a nice animated component that shows activity rings similar to Apple's fitness app. 
+<think><details><summary>Thought Process</summary>Now I have the complete picture of the Apple Activity Card component. It's a nice animated component that shows activity rings similar to Apple's fitness app.
 
 I need to:
+
 1. Import the AppleActivityCard component
 2. Replace the entire Performance Analytics Section (lines approximately 343-590) with a new section that uses the AppleActivityCard
 
@@ -76,8 +77,6 @@ Now I'll replace the Performance Analytics Section with the Apple Activity Card 
 2. Replace the entire Performance Analytics Section with a new section using the rings component
 
 ---
-
-
 
 ---
 
@@ -105,8 +104,6 @@ I need to replace this entire section with a new one that uses the AppleActivity
 Now I'll replace the entire Performance Analytics Section with the Apple Activity Card component:
 
 ---
-
-
 
 ---
 
@@ -150,4 +147,3 @@ Perfect! I've successfully replaced the Performance Analytics Section with the A
 The new section will now display beautiful animated activity rings showing progress across different metrics (MOVE, EXERCISE, STAND) with smooth motion animations that will captivate users as they scroll through your homepage.
 
 ---
-

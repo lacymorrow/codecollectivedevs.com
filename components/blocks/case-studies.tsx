@@ -1,14 +1,9 @@
-import CardSwap, { Card } from "@/components/react-bits/CardSwap";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import Image from "next/image";
-import {
-  ArrowRight,
-  TrendingUp,
-  MessageSquare,
-  ShoppingCart,
-} from "lucide-react";
+import CardSwap, { Card } from '@/components/react-bits/CardSwap';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+import Image from 'next/image';
+import { ArrowRight, TrendingUp, MessageSquare, ShoppingCart } from 'lucide-react';
 
 export default function CaseStudies() {
   return (
@@ -23,19 +18,15 @@ export default function CaseStudies() {
               </h2>
               <p
                 className="text-xl text-zinc-600 scroll-animate"
-                style={{ animationDelay: "0.1s" }}
+                style={{ animationDelay: '0.1s' }}
               >
-                See how we've helped companies scale their digital
-                infrastructure and drive growth.
+                See how we've helped companies scale their digital infrastructure and drive growth.
               </p>
             </div>
 
             {/* Key highlights */}
             <div className="space-y-6">
-              <div
-                className="flex gap-4 scroll-animate"
-                style={{ animationDelay: "0.2s" }}
-              >
+              <div className="flex gap-4 scroll-animate" style={{ animationDelay: '0.2s' }}>
                 <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                   <MessageSquare className="h-5 w-5 text-blue-600" />
                 </div>
@@ -44,44 +35,34 @@ export default function CaseStudies() {
                     Communication Platforms
                   </h3>
                   <p className="text-zinc-600">
-                    Scalable messaging solutions processing millions of messages
-                    daily with enterprise-grade reliability.
+                    Scalable messaging solutions processing millions of messages daily with
+                    enterprise-grade reliability.
                   </p>
                 </div>
               </div>
 
-              <div
-                className="flex gap-4 scroll-animate"
-                style={{ animationDelay: "0.3s" }}
-              >
+              <div className="flex gap-4 scroll-animate" style={{ animationDelay: '0.3s' }}>
                 <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
                   <ShoppingCart className="h-5 w-5 text-green-600" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-zinc-900 text-lg mb-2">
-                    E-commerce Solutions
-                  </h3>
+                  <h3 className="font-semibold text-zinc-900 text-lg mb-2">E-commerce Solutions</h3>
                   <p className="text-zinc-600">
-                    Headless commerce platforms driving millions in revenue with
-                    modern, performant storefronts.
+                    Headless commerce platforms driving millions in revenue with modern, performant
+                    storefronts.
                   </p>
                 </div>
               </div>
 
-              <div
-                className="flex gap-4 scroll-animate"
-                style={{ animationDelay: "0.4s" }}
-              >
+              <div className="flex gap-4 scroll-animate" style={{ animationDelay: '0.4s' }}>
                 <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
                   <TrendingUp className="h-5 w-5 text-purple-600" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-zinc-900 text-lg mb-2">
-                    Analytics Dashboards
-                  </h3>
+                  <h3 className="font-semibold text-zinc-900 text-lg mb-2">Analytics Dashboards</h3>
                   <p className="text-zinc-600">
-                    Real-time data visualization platforms processing massive
-                    datasets with machine learning insights.
+                    Real-time data visualization platforms processing massive datasets with machine
+                    learning insights.
                   </p>
                 </div>
               </div>
@@ -92,18 +73,13 @@ export default function CaseStudies() {
           <div className="flex justify-center lg:justify-end">
             <div
               style={{
-                height: "650px",
-                position: "relative",
-                maxWidth: "600px",
-                width: "100%",
+                height: '650px',
+                position: 'relative',
+                maxWidth: '600px',
+                width: '100%',
               }}
             >
-              <CardSwap
-                cardDistance={60}
-                verticalDistance={70}
-                delay={6000}
-                pauseOnHover={true}
-              >
+              <CardSwap cardDistance={60} verticalDistance={70} delay={6000} pauseOnHover={true}>
                 {/* TechFlow - Twilio Communication Platform */}
                 <Card>
                   <div className="bg-white rounded-2xl shadow-xl border border-zinc-200 p-8 space-y-6 h-full">
@@ -112,37 +88,24 @@ export default function CaseStudies() {
                         <MessageSquare className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-zinc-900">
-                          TechFlow Solutions
-                        </h3>
-                        <p className="text-zinc-600 text-sm">
-                          Communication Platform
-                        </p>
+                        <h3 className="text-xl font-bold text-zinc-900">TechFlow Solutions</h3>
+                        <p className="text-zinc-600 text-sm">Communication Platform</p>
                       </div>
                     </div>
 
                     <p className="text-zinc-700 leading-relaxed">
-                      Built a scalable Twilio-powered communication platform
-                      handling over 1 million messages daily while reducing
-                      operational costs by 40%.
+                      Built a scalable Twilio-powered communication platform handling over 1 million
+                      messages daily while reducing operational costs by 40%.
                     </p>
 
                     <div className="grid grid-cols-2 gap-4">
                       <div className="text-center bg-blue-50 rounded-lg p-3">
-                        <div className="text-lg font-bold text-blue-600">
-                          1M+
-                        </div>
-                        <div className="text-xs text-zinc-600">
-                          Messages/day
-                        </div>
+                        <div className="text-lg font-bold text-blue-600">1M+</div>
+                        <div className="text-xs text-zinc-600">Messages/day</div>
                       </div>
                       <div className="text-center bg-green-50 rounded-lg p-3">
-                        <div className="text-lg font-bold text-green-600">
-                          40%
-                        </div>
-                        <div className="text-xs text-zinc-600">
-                          Cost reduction
-                        </div>
+                        <div className="text-lg font-bold text-green-600">40%</div>
+                        <div className="text-xs text-zinc-600">Cost reduction</div>
                       </div>
                     </div>
 
@@ -178,35 +141,24 @@ export default function CaseStudies() {
                         <ShoppingCart className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-zinc-900">
-                          Artisan Marketplace
-                        </h3>
-                        <p className="text-zinc-600 text-sm">
-                          E-commerce Platform
-                        </p>
+                        <h3 className="text-xl font-bold text-zinc-900">Artisan Marketplace</h3>
+                        <p className="text-zinc-600 text-sm">E-commerce Platform</p>
                       </div>
                     </div>
 
                     <p className="text-zinc-700 leading-relaxed">
-                      Modern headless e-commerce platform using Swell that
-                      processes $2M+ in monthly transactions and increased sales
-                      by 60%.
+                      Modern headless e-commerce platform using Swell that processes $2M+ in monthly
+                      transactions and increased sales by 60%.
                     </p>
 
                     <div className="grid grid-cols-2 gap-4">
                       <div className="text-center bg-green-50 rounded-lg p-3">
-                        <div className="text-lg font-bold text-green-600">
-                          $2M+
-                        </div>
+                        <div className="text-lg font-bold text-green-600">$2M+</div>
                         <div className="text-xs text-zinc-600">Monthly GMV</div>
                       </div>
                       <div className="text-center bg-blue-50 rounded-lg p-3">
-                        <div className="text-lg font-bold text-blue-600">
-                          60%
-                        </div>
-                        <div className="text-xs text-zinc-600">
-                          Sales increase
-                        </div>
+                        <div className="text-lg font-bold text-blue-600">60%</div>
+                        <div className="text-xs text-zinc-600">Sales increase</div>
                       </div>
                     </div>
 
@@ -242,35 +194,24 @@ export default function CaseStudies() {
                         <TrendingUp className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-zinc-900">
-                          DataSync Corp
-                        </h3>
-                        <p className="text-zinc-600 text-sm">
-                          Analytics Platform
-                        </p>
+                        <h3 className="text-xl font-bold text-zinc-900">DataSync Corp</h3>
+                        <p className="text-zinc-600 text-sm">Analytics Platform</p>
                       </div>
                     </div>
 
                     <p className="text-zinc-700 leading-relaxed">
-                      Enterprise analytics platform processing 100GB+ of data
-                      daily, delivering real-time insights 10x faster than
-                      previous solutions.
+                      Enterprise analytics platform processing 100GB+ of data daily, delivering
+                      real-time insights 10x faster than previous solutions.
                     </p>
 
                     <div className="grid grid-cols-2 gap-4">
                       <div className="text-center bg-purple-50 rounded-lg p-3">
-                        <div className="text-lg font-bold text-purple-600">
-                          100GB+
-                        </div>
+                        <div className="text-lg font-bold text-purple-600">100GB+</div>
                         <div className="text-xs text-zinc-600">Daily data</div>
                       </div>
                       <div className="text-center bg-blue-50 rounded-lg p-3">
-                        <div className="text-lg font-bold text-blue-600">
-                          10x
-                        </div>
-                        <div className="text-xs text-zinc-600">
-                          Faster insights
-                        </div>
+                        <div className="text-lg font-bold text-blue-600">10x</div>
+                        <div className="text-xs text-zinc-600">Faster insights</div>
                       </div>
                     </div>
 

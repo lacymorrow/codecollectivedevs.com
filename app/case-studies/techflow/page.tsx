@@ -1,10 +1,11 @@
-"use client"
+'use client';
 
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import Image from 'next/image';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { GetStartedModal } from '@/components/GetStartedModal';
 
 export default function TechFlowCaseStudy() {
   return (
@@ -20,7 +21,9 @@ export default function TechFlowCaseStudy() {
               height={32}
               className="rounded-lg"
             />
-            <span className="text-xl font-semibold tracking-tight text-zinc-900">Code Collective</span>
+            <span className="text-xl font-semibold tracking-tight text-zinc-900">
+              Code Collective
+            </span>
           </Link>
           <nav className="hidden md:flex items-center gap-8">
             <Link
@@ -35,13 +38,20 @@ export default function TechFlowCaseStudy() {
             >
               Case Studies
             </Link>
-            <Link href="/#pricing" className="text-sm font-medium text-zinc-700 hover:text-zinc-900 transition-colors">
+            <Link
+              href="/#pricing"
+              className="text-sm font-medium text-zinc-700 hover:text-zinc-900 transition-colors"
+            >
               Pricing
             </Link>
           </nav>
-          <Button size="sm" className="bg-zinc-900 hover:bg-zinc-800 text-white">
-            Get Started
-          </Button>
+          <GetStartedModal
+            trigger={
+              <Button size="sm" className="bg-zinc-900 hover:bg-zinc-800 text-white">
+                Get Started
+              </Button>
+            }
+          />
         </div>
       </header>
 
@@ -81,8 +91,8 @@ export default function TechFlowCaseStudy() {
                     </div>
                   </div>
                   <p className="text-xl text-zinc-600 leading-relaxed">
-                    How we built a scalable Twilio-powered communication platform that handles over 1 million messages
-                    daily while reducing operational costs by 40%.
+                    How we built a scalable Twilio-powered communication platform that handles over
+                    1 million messages daily while reducing operational costs by 40%.
                   </p>
                 </div>
 
@@ -145,8 +155,8 @@ export default function TechFlowCaseStudy() {
                 <h2 className="text-2xl font-bold tracking-tight text-zinc-900">The Challenge</h2>
                 <div className="space-y-4 text-zinc-600 leading-relaxed">
                   <p>
-                    TechFlow Solutions was struggling with their legacy communication system that couldn't handle their
-                    growing customer base. Their existing solution was:
+                    TechFlow Solutions was struggling with their legacy communication system that
+                    couldn't handle their growing customer base. Their existing solution was:
                   </p>
                   <ul className="space-y-2 ml-4">
                     <li className="flex items-start gap-2">
@@ -173,8 +183,8 @@ export default function TechFlowCaseStudy() {
                 <h2 className="text-2xl font-bold tracking-tight text-zinc-900">Our Solution</h2>
                 <div className="space-y-4 text-zinc-600 leading-relaxed">
                   <p>
-                    We designed and built a modern, scalable communication platform using Twilio's enterprise APIs
-                    combined with a custom-built management dashboard:
+                    We designed and built a modern, scalable communication platform using Twilio's
+                    enterprise APIs combined with a custom-built management dashboard:
                   </p>
                   <ul className="space-y-2 ml-4">
                     <li className="flex items-start gap-2">
@@ -205,9 +215,12 @@ export default function TechFlowCaseStudy() {
           <div className="container px-4 md:px-6">
             <div className="space-y-12">
               <div className="text-center space-y-4">
-                <h2 className="text-2xl font-bold tracking-tight text-zinc-900">Results & Impact</h2>
+                <h2 className="text-2xl font-bold tracking-tight text-zinc-900">
+                  Results & Impact
+                </h2>
                 <p className="text-zinc-600 max-w-2xl mx-auto">
-                  The new platform delivered significant improvements across all key metrics within the first quarter.
+                  The new platform delivered significant improvements across all key metrics within
+                  the first quarter.
                 </p>
               </div>
 
@@ -245,12 +258,18 @@ export default function TechFlowCaseStudy() {
                 <div className="space-y-6">
                   <div className="text-center">
                     <div className="text-2xl font-bold text-zinc-900 mb-4">
-                      "The transformation has been incredible. We went from constant firefighting to having a platform
-                      that just works."
+                      "The transformation has been incredible. We went from constant firefighting to
+                      having a platform that just works."
                     </div>
                   </div>
                   <div className="flex items-center justify-center gap-4">
-                    <Image src="/client-1.png" alt="Sarah Chen" width={64} height={64} className="rounded-full" />
+                    <Image
+                      src="/client-1.png"
+                      alt="Sarah Chen"
+                      width={64}
+                      height={64}
+                      className="rounded-full"
+                    />
                     <div className="text-center">
                       <div className="font-semibold text-zinc-900">Sarah Chen</div>
                       <div className="text-sm text-zinc-600">CTO, TechFlow Solutions</div>
@@ -266,13 +285,20 @@ export default function TechFlowCaseStudy() {
         <section className="w-full py-16 bg-zinc-900 text-white">
           <div className="container px-4 md:px-6">
             <div className="text-center space-y-6">
-              <h2 className="text-2xl font-bold tracking-tight">Ready to scale your communication platform?</h2>
+              <h2 className="text-2xl font-bold tracking-tight">
+                Ready to scale your communication platform?
+              </h2>
               <p className="text-zinc-300 max-w-2xl mx-auto">
-                Let's discuss how we can help you build a solution that handles your growing business needs.
+                Let's discuss how we can help you build a solution that handles your growing
+                business needs.
               </p>
-              <Button size="lg" className="bg-white text-zinc-900 hover:bg-zinc-100">
-                Start Your Project
-              </Button>
+              <GetStartedModal
+                trigger={
+                  <Button size="lg" className="bg-white text-zinc-900 hover:bg-zinc-100">
+                    Start Your Project
+                  </Button>
+                }
+              />
             </div>
           </div>
         </section>
@@ -290,9 +316,13 @@ export default function TechFlowCaseStudy() {
                 height={32}
                 className="rounded-lg"
               />
-              <span className="text-xl font-semibold tracking-tight text-zinc-900">Code Collective</span>
+              <span className="text-xl font-semibold tracking-tight text-zinc-900">
+                Code Collective
+              </span>
             </div>
-            <p className="text-zinc-600 text-sm">Enterprise web development solutions that scale with your business.</p>
+            <p className="text-zinc-600 text-sm">
+              Enterprise web development solutions that scale with your business.
+            </p>
           </div>
           <div className="mt-6 border-t border-zinc-200 pt-4 text-center text-sm text-zinc-500">
             &copy; {new Date().getFullYear()} Code Collective. All rights reserved.
@@ -300,5 +330,5 @@ export default function TechFlowCaseStudy() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
