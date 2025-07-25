@@ -25,7 +25,9 @@ export default function RootLayout({
       <body>
         <Navbar />
         {/* <HeroHeader /> */}
-        <QueryProvider>{children}</QueryProvider>
+        <div className="side-shading-wrapper">
+          <QueryProvider>{children}</QueryProvider>
+        </div>
       </body>
     </html>
   );
