@@ -7,6 +7,7 @@ import Link from "next/link";
 import { AtomIcon, Menu, X } from "lucide-react";
 import { HeroHeader } from "@/components/blocks/hero-header";
 import { QueryProvider } from "@/components/providers/query-provider";
+import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
   title: "v0 App",
@@ -22,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Navbar />
         {/* <HeroHeader /> */}
         <QueryProvider>{children}</QueryProvider>
       </body>
